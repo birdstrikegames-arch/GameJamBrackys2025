@@ -4,9 +4,11 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager _instance { get; private set; }
     public GameObject player;
-    public GameObject playerUI;
+    public PlayerUI playerUI;
 
     public float loudnessLevel;
+
+    public bool hasKey;
 
     private void Awake()
     {
@@ -28,7 +30,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerUI.GetComponent<PlayerUI>().updateLoudnessUI(loudnessLevel);
+        playerUI.GetComponent<PlayerUI>().UpdateLoudnessUI(loudnessLevel);
         
     }
     

@@ -23,7 +23,7 @@ public class InteractionSystem : MonoBehaviour
         ray = new Ray(cameraPOV.transform.position, cameraPOV.transform.forward);
         if (Physics.Raycast(ray, out hit, rayLength, interactableLayer))
         {
-            playerUI.updateLookAtText(hit.transform.gameObject.name);
+            playerUI.UpdateLookAtText(hit.transform.gameObject.name);
             if (playerInput.InputMap.Player.Interact.IsPressed())
             {
                 Interactable interaction = hit.collider.GetComponent<Interactable>();
@@ -35,7 +35,7 @@ public class InteractionSystem : MonoBehaviour
         }
         else
         {
-            playerUI.updateLookAtText("");
+            playerUI.UpdateLookAtText("");
         }
     }
 

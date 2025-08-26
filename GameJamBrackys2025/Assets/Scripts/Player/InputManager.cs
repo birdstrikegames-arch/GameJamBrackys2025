@@ -56,7 +56,7 @@ public class InputManager : MonoBehaviour
         }
         onJump = false;
 
-        if (onCrouch && IsGrounded())
+        if (onCrouch /*&& IsGrounded()*/)
         {
             rb.AddForce(Vector3.down * 1, ForceMode.Impulse);
             gameObject.transform.localScale = new Vector3(1, crouchHeight, 1);

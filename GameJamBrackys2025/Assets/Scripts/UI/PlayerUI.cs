@@ -5,18 +5,25 @@ using UnityEngine.UI;
 public class PlayerUI : MonoBehaviour
 {
     [Header("loudness slider options")]
-    public Slider loudnessSLider;
+    public Slider loudnessSlider;
     public float sliderMax;
 
     [Header("look at thingies")]
     [SerializeField]
     private TextMeshProUGUI lookatText;
 
+    [Header("DoorUI slider options")]
+    public Slider openMeterSlider;
+    public float maxHoldTime;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        loudnessSLider.maxValue = sliderMax;
+        loudnessSlider.maxValue = sliderMax;
+        UpdateDoorUI(0);
+
+
     }
 
     // Update is called once per frame
@@ -25,12 +32,19 @@ public class PlayerUI : MonoBehaviour
         
     }
 
-    public void updateLoudnessUI(float playerLoudness)
+    public void UpdateLoudnessUI(float playerLoudness)
     {
-        loudnessSLider.value = playerLoudness;
+        loudnessSlider.value = playerLoudness;
     }
-    public void updateLookAtText(string text)
+    public void UpdateLookAtText(string text)
     {
         lookatText.text = text;
+    }
+
+    public void UpdateDoorUI(float heldCounter)
+    {
+        openMeterSlider.value = heldCounter;
+        if (heldCounter == 0)
+            openMeterSlider.enabled = false;
     }
 }
