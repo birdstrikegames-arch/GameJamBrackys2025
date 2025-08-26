@@ -3,7 +3,8 @@ using static UnityEngine.UI.Image;
 
 public class InputManager : MonoBehaviour
 {
-    private InputSystem_Actions InputMap;
+    [HideInInspector]
+    public InputSystem_Actions InputMap;
     [Header("Player Components")]
     public Rigidbody rb;
     public Transform cameraPivot;
@@ -32,6 +33,9 @@ public class InputManager : MonoBehaviour
     {
         InputMap = new InputSystem_Actions();
         InputMap.Player.Enable();
+
+        Cursor.lockState = CursorLockMode.Locked;   //REMEBER TO REMOVE!!!!
+        Cursor.visible = false;
     }
 
     void Update()
@@ -52,7 +56,7 @@ public class InputManager : MonoBehaviour
         }
         onJump = false;
 
-        if (onCrouch)
+        if (onCrouch && IsGrounded())
         {
             rb.AddForce(Vector3.down * 1, ForceMode.Impulse);
             gameObject.transform.localScale = new Vector3(1, crouchHeight, 1);

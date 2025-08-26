@@ -4,6 +4,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager _instance { get; private set; }
     public GameObject player;
+    public GameObject playerUI;
 
     public float loudnessLevel;
 
@@ -27,7 +28,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        player.GetComponent<PlayerUI>().updateLoudnessUI(loudnessLevel);
+        playerUI.GetComponent<PlayerUI>().updateLoudnessUI(loudnessLevel);
         
     }
     

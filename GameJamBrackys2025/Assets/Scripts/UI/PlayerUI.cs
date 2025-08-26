@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,6 +7,10 @@ public class PlayerUI : MonoBehaviour
     [Header("loudness slider options")]
     public Slider loudnessSLider;
     public float sliderMax;
+
+    [Header("look at thingies")]
+    [SerializeField]
+    private TextMeshProUGUI lookatText;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -23,5 +28,9 @@ public class PlayerUI : MonoBehaviour
     public void updateLoudnessUI(float playerLoudness)
     {
         loudnessSLider.value = playerLoudness;
+    }
+    public void updateLookAtText(string text)
+    {
+        lookatText.text = text;
     }
 }
