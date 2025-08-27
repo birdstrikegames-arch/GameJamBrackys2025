@@ -6,9 +6,14 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public PlayerUI playerUI;
 
-    public float loudnessLevel;
+    private float loudnessLevel;
+    public float loudnessDecreaseSpeed;
 
     public bool hasKey;
+    public bool hasBoltCutters;
+    public bool hasBroom;
+
+    public bool hasLost;
 
     private void Awake()
     {
@@ -31,9 +36,14 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         playerUI.GetComponent<PlayerUI>().UpdateLoudnessUI(loudnessLevel);
-        
+
+        if (loudnessLevel > 0)
+            loudnessLevel -= loudnessDecreaseSpeed * Time.deltaTime;
+        if (loudnessLevel <= 0)
+            loudnessLevel = 0;
+
     }
-    
+
 
     public void IncreaseLoudness(float level)
     {

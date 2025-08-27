@@ -27,7 +27,7 @@ public class InteractionSystem : MonoBehaviour
             if (playerInput.InputMap.Player.Interact.IsPressed())
             {
                 Interactable interaction = hit.collider.GetComponent<Interactable>();
-                if(interaction != null)
+                if(interaction != null && !hit.collider.GetComponent<Door>().animator.GetBool("isOpen"))
                 {
                     interaction.Interact();
                 }

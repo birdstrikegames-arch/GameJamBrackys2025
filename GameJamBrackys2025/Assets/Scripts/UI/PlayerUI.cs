@@ -4,6 +4,13 @@ using UnityEngine.UI;
 
 public class PlayerUI : MonoBehaviour
 {
+    [Header("Audio stuff")]
+    [SerializeField]
+    private AudioSource audioSource;
+    [SerializeField]
+    private AudioClip openDoorSFX;
+    [SerializeField]
+    private AudioClip openDoorLoudSFX;
     [Header("loudness slider options")]
     public Slider loudnessSlider;
     public float sliderMax;
@@ -29,7 +36,7 @@ public class PlayerUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void UpdateLoudnessUI(float playerLoudness)
@@ -43,8 +50,10 @@ public class PlayerUI : MonoBehaviour
 
     public void UpdateDoorUI(float heldCounter)
     {
-        openMeterSlider.value = heldCounter;
         if (heldCounter == 0)
-            openMeterSlider.enabled = false;
+            openMeterSlider.gameObject.SetActive(false);
+        else
+            openMeterSlider.gameObject.SetActive(true);
+        openMeterSlider.value = heldCounter;
     }
 }
