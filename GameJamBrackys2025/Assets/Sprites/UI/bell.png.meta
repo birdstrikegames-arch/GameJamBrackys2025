@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0056c1c2dbabc904bb7c9ce97d680d56
+guid: 1166c37023e626644b0582077536ac1c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SquishySanta_0
+      name: bell_0
       rect:
         serializedVersion: 2
-        x: 82
-        y: 81
-        width: 433
-        height: 421
+        x: 50
+        y: 15
+        width: 178
+        height: 216
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,8 +125,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4cd44dfbcd9b3348bd1b7a0808d99e9
-      internalID: 876912933
+      spriteID: 866cdc5f2e4e37047a90f965fc53e84b
+      internalID: 971009806
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 00658707d85647b428a1c4c7e03fb9a4
+    spriteID: c295fc540caf2c4419f9db598aa276ed
     internalID: 0
     vertices: []
     indices: 
@@ -145,7 +145,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SquishySanta_0: 876912933
+      bell_0: 971009806
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -75,6 +75,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bf2ddd6c4abcb6946810d7e6a7f3d624, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7855107966207647806}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bf2ddd6c4abcb6946810d7e6a7f3d624, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7313778903786416458}
   m_SourcePrefab: {fileID: 100100000, guid: bf2ddd6c4abcb6946810d7e6a7f3d624, type: 3}
 --- !u!1 &7902745700147312644 stripped
 GameObject:
@@ -103,3 +106,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5750084716789328873, guid: bf2ddd6c4abcb6946810d7e6a7f3d624, type: 3}
+--- !u!114 &7313778903786416458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7902745700147312644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56b4a06c964f34e498b3248febcd1cb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  requierdHoldTime: 3
+  doorCloseTime: 3
+  doorNoiseLevel: 1
+  trapDoorNoiseLevel: 0
