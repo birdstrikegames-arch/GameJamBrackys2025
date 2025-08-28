@@ -1,5 +1,4 @@
 using UnityEngine;
-using static UnityEngine.UI.Image;
 
 public class InputManager : MonoBehaviour
 {
@@ -9,6 +8,7 @@ public class InputManager : MonoBehaviour
     public Rigidbody rb;
     public Transform cameraPivot;
     public GameObject jumpRayPOS;
+    public GameObject body;
 
     [Header("Player settings")]
     public float playerSpeed;
@@ -25,8 +25,11 @@ public class InputManager : MonoBehaviour
     private Vector2 moveInput;
     private Vector2 lookInput;
     private bool onJump;
+    private bool canjump = true;
     private bool onCrouch;
     private float pitch;
+
+   
 
 
     void Start()
@@ -49,26 +52,30 @@ public class InputManager : MonoBehaviour
 
 
 
-        // jump (simple ground check via ray)
-        if (onJump && IsGrounded())
+        
+        if (onJump && IsGrounded()) // jump 
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
         onJump = false;
 
-        if (onCrouch /*&& IsGrounded()*/)
+        if (onCrouch) //crouching
         {
-            rb.AddForce(Vector3.down * 1, ForceMode.Impulse);
-            gameObject.transform.localScale = new Vector3(1, crouchHeight, 1);
+            canjump = false;
+            rb.AddForce(Vector3.down * 0.5f, ForceMode.Impulse);
+            body.transform.localScale = new Vector3(1, crouchHeight, 1);
         }
         else
         {
-            gameObject.transform.localScale = new Vector3(1, 1, 1);
+            canjump = true;
+            body.transform.localScale = new Vector3(1, 1, 1);
         }
     }
 
     private void FixedUpdate()
     {
+        if (!IsGrounded()) return;
+
         Vector3 forward = transform.forward;
         Vector3 right = transform.right;
 
@@ -102,8 +109,6 @@ public class InputManager : MonoBehaviour
 
         return Physics.Raycast(jumpRayPOS.transform.position, Vector3.down, groundCheckDistance, groundMask, QueryTriggerInteraction.Ignore);
     }
-
-
 
     private void OnDrawGizmos()
     {

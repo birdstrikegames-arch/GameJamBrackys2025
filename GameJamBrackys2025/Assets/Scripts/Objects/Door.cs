@@ -20,6 +20,7 @@ public class Door : Interactable
             currentHoldTime += Time.deltaTime;
             GameManager._instance.playerUI.openMeterSlider.maxValue = requierdHoldTime;
             GameManager._instance.playerUI.UpdateDoorUI(currentHoldTime);
+
         }
 
         else if (gameObject.CompareTag("LockedDoor")) //locked dear logic
@@ -46,19 +47,22 @@ public class Door : Interactable
             if (currentHoldTime < requierdHoldTime) // released early
                 GameManager._instance.IncreaseLoudness(doorNoiseLevel);
 
-            if(gameObject.CompareTag("TrapDoor")) // IF DOOR IS A TRAP DOOR
+            if (gameObject.CompareTag("TrapDoor")) // IF DOOR IS A TRAP DOOR
+            {
+                gameObject.tag = "Door";
                 GameManager._instance.IncreaseLoudness(trapDoorNoiseLevel);
+            }
 
             currentHoldTime = 0;
             GameManager._instance.playerUI.UpdateDoorUI(currentHoldTime);
             animator.SetBool("isOpen", true);
             StartCoroutine(DoorCloseDelay());
+
         }
         else
         {
             GameManager._instance.IncreaseLoudness(doorNoiseLevel);
         }
-
     }
 
     private IEnumerator DoorCloseDelay()

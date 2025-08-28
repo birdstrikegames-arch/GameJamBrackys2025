@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public bool hasBroom;
 
     public bool hasLost;
+    public bool hasCollectedCookies;
 
     private void Awake()
     {
@@ -42,6 +43,13 @@ public class GameManager : MonoBehaviour
         if (loudnessLevel <= 0)
             loudnessLevel = 0;
 
+        if (hasCollectedCookies)
+            GameWin();
+
+        if (hasLost)
+            GameLost();
+
+
     }
 
 
@@ -50,5 +58,13 @@ public class GameManager : MonoBehaviour
         loudnessLevel += level;
     }
 
+    private void GameWin()
+    {
+        Debug.Log("game won");
+    }
+    private void GameLost()
+    {
+        Debug.Log("game lost");
+    }
 
 }
