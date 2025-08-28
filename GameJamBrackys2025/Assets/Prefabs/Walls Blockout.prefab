@@ -2365,7 +2365,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4158440237311416453}
   m_Layer: 0
-  m_Name: House Blockout
+  m_Name: Walls Blockout
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
