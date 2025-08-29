@@ -3322,6 +3322,42 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 546916633433678312, guid: 5acd8e775c322fb4fa73298b880809f3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.4014078
+      objectReference: {fileID: 0}
+    - target: {fileID: 1673562733711197471, guid: 5acd8e775c322fb4fa73298b880809f3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2047894
+      objectReference: {fileID: 0}
+    - target: {fileID: 2224805331774966957, guid: 5acd8e775c322fb4fa73298b880809f3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.65648
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308167260322160553, guid: 5acd8e775c322fb4fa73298b880809f3, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: bd8bf08934815d8498271858697b7a7c, type: 2}
+    - target: {fileID: 3374254257965036626, guid: 5acd8e775c322fb4fa73298b880809f3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.73335
+      objectReference: {fileID: 0}
+    - target: {fileID: 3744156780042734881, guid: 5acd8e775c322fb4fa73298b880809f3, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: bd8bf08934815d8498271858697b7a7c, type: 2}
+    - target: {fileID: 4184101742856385587, guid: 5acd8e775c322fb4fa73298b880809f3, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: bd8bf08934815d8498271858697b7a7c, type: 2}
+    - target: {fileID: 4190052126820576438, guid: 5acd8e775c322fb4fa73298b880809f3, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: bd8bf08934815d8498271858697b7a7c, type: 2}
+    - target: {fileID: 4231096466047256448, guid: 5acd8e775c322fb4fa73298b880809f3, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: bd8bf08934815d8498271858697b7a7c, type: 2}
     - target: {fileID: 4308111377480260451, guid: 5acd8e775c322fb4fa73298b880809f3, type: 3}
       propertyPath: m_Name
       value: House
@@ -3337,6 +3373,22 @@ PrefabInstance:
     - target: {fileID: 4797362749037096248, guid: 5acd8e775c322fb4fa73298b880809f3, type: 3}
       propertyPath: m_LocalPosition.z
       value: 5.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269830771818125344, guid: 5acd8e775c322fb4fa73298b880809f3, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: bd8bf08934815d8498271858697b7a7c, type: 2}
+    - target: {fileID: 5766845164249254594, guid: 5acd8e775c322fb4fa73298b880809f3, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: bd8bf08934815d8498271858697b7a7c, type: 2}
+    - target: {fileID: 5997273613241693114, guid: 5acd8e775c322fb4fa73298b880809f3, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: bd8bf08934815d8498271858697b7a7c, type: 2}
+    - target: {fileID: 7208971107718162700, guid: 5acd8e775c322fb4fa73298b880809f3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1229988
       objectReference: {fileID: 0}
     - target: {fileID: 7712808652345218604, guid: 5acd8e775c322fb4fa73298b880809f3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3377,6 +3429,10 @@ PrefabInstance:
     - target: {fileID: 7712808652345218604, guid: 5acd8e775c322fb4fa73298b880809f3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8405353736611384827, guid: 5acd8e775c322fb4fa73298b880809f3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.3728513
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6405,6 +6461,7 @@ MonoBehaviour:
   hasBroom: 0
   hasLost: 0
   hasCollectedCookies: 0
+  winPanel: {fileID: 0}
 --- !u!4 &2012587921
 Transform:
   m_ObjectHideFlags: 0
