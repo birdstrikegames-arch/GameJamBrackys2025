@@ -623,6 +623,12 @@ MonoBehaviour:
   doorCloseTime: 3
   doorNoiseLevel: 1
   trapDoorNoiseLevel: 0
+  audioSource: {fileID: 0}
+  openSFX: {fileID: 0}
+  closeSFX: {fileID: 0}
+  failedOpenSFX: {fileID: 0}
+  trapDoorSFX: {fileID: 0}
+  unlock: {fileID: 0}
 --- !u!4 &4364871449384672707 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4054274156561625579, guid: de67fdcafe972ce4eb7ed47c56149932, type: 3}
@@ -1361,6 +1367,12 @@ MonoBehaviour:
   doorCloseTime: 3
   doorNoiseLevel: 1
   trapDoorNoiseLevel: 0
+  audioSource: {fileID: 0}
+  openSFX: {fileID: 0}
+  closeSFX: {fileID: 0}
+  failedOpenSFX: {fileID: 0}
+  trapDoorSFX: {fileID: 0}
+  unlock: {fileID: 0}
 --- !u!4 &2768541541281073554 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4054274156561625579, guid: de67fdcafe972ce4eb7ed47c56149932, type: 3}
@@ -1472,6 +1484,12 @@ MonoBehaviour:
   doorCloseTime: 3
   doorNoiseLevel: 1
   trapDoorNoiseLevel: 0
+  audioSource: {fileID: 0}
+  openSFX: {fileID: 0}
+  closeSFX: {fileID: 0}
+  failedOpenSFX: {fileID: 0}
+  trapDoorSFX: {fileID: 0}
+  unlock: {fileID: 0}
 --- !u!4 &2878226400365408958 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4054274156561625579, guid: de67fdcafe972ce4eb7ed47c56149932, type: 3}
@@ -2700,16 +2718,8 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3667143862150247299, guid: 16908f2dd9146eb40bfa7b7bc38fb83e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.471
-      objectReference: {fileID: 0}
-    - target: {fileID: 3667143862150247299, guid: 16908f2dd9146eb40bfa7b7bc38fb83e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.7200058
-      objectReference: {fileID: 0}
-    - target: {fileID: 3667143862150247299, guid: 16908f2dd9146eb40bfa7b7bc38fb83e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 3.646
+      propertyPath: m_LocalScale.y
+      value: 490
       objectReference: {fileID: 0}
     - target: {fileID: 3667143862150247299, guid: 16908f2dd9146eb40bfa7b7bc38fb83e, type: 3}
       propertyPath: m_LocalRotation.w
