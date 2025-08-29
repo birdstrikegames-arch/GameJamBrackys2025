@@ -8,17 +8,17 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: lambert30
-    second: {fileID: 2100000, guid: e678d1d781e92124f9921407f14a6c07, type: 2}
+    second: {fileID: 2100000, guid: 40fa570d771688f4da2a39e55468ae31, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: lambert31
-    second: {fileID: 2100000, guid: 3e6376458854a49408ab4853d9d5416b, type: 2}
+    second: {fileID: 2100000, guid: 1ecf140930c77d74c94b95b2be6276a0, type: 2}
   materials:
     materialImportMode: 2
-    materialName: 0
+    materialName: 1
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
