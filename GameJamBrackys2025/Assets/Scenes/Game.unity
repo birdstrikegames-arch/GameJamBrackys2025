@@ -3326,6 +3326,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: House
       objectReference: {fileID: 0}
+    - target: {fileID: 4797362749037096248, guid: 5acd8e775c322fb4fa73298b880809f3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4797362749037096248, guid: 5acd8e775c322fb4fa73298b880809f3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 4797362749037096248, guid: 5acd8e775c322fb4fa73298b880809f3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.97
+      objectReference: {fileID: 0}
     - target: {fileID: 7712808652345218604, guid: 5acd8e775c322fb4fa73298b880809f3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
