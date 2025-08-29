@@ -909,8 +909,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99fe66341b066ab47a5978aa7e9c2631, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  openDoorSFX: {fileID: 0}
+  openDoorLoudSFX: {fileID: 0}
   loudnessSlider: {fileID: 6239388565075254832}
-  sliderMax: 20
+  sliderMax: 200
   lookatText: {fileID: 7089512876115544058}
   openMeterSlider: {fileID: 1477818170397095741}
   maxHoldTime: 0

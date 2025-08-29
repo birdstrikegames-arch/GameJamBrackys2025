@@ -37,7 +37,7 @@ public class InteractionSystem : MonoBehaviour
         {
             playerUI.UpdateLookAtText("");
         }
-    }
+    }   
 
     private void OnDrawGizmos()
     {

@@ -11,6 +11,20 @@ public class Door : Interactable
     [Tooltip("only if the door is tagged with 'TrapDoor'")]
     public float trapDoorNoiseLevel;
 
+    [Header("Audio")]
+    [SerializeField]
+    private AudioSource audioSource;
+    [SerializeField]
+    private AudioClip openSFX;
+    [SerializeField]
+    private AudioClip closeSFX;
+    [SerializeField]
+    private AudioClip failedOpenSFX;
+    [SerializeField]
+    private AudioClip trapDoorSFX;
+    [SerializeField]
+    private AudioClip unlock;
+
 
     private float currentHoldTime;
     public override void Interact()
@@ -26,6 +40,7 @@ public class Door : Interactable
         else if (gameObject.CompareTag("LockedDoor")) //locked dear logic
             if (GameManager._instance.hasKey)
             {
+                audioSource.PlayOneShot(unlock);
                 gameObject.tag = "Door";
             }
     }
@@ -45,14 +60,19 @@ public class Door : Interactable
         if (!gameObject.CompareTag("LockedDoor"))
         {
             if (currentHoldTime < requierdHoldTime) // released early
+            {
+                audioSource.PlayOneShot(failedOpenSFX);
                 GameManager._instance.IncreaseLoudness(doorNoiseLevel);
+            }
+
 
             if (gameObject.CompareTag("TrapDoor")) // IF DOOR IS A TRAP DOOR
             {
+                audioSource.PlayOneShot(trapDoorSFX);
                 gameObject.tag = "Door";
                 GameManager._instance.IncreaseLoudness(trapDoorNoiseLevel);
             }
-
+            audioSource.PlayOneShot(openSFX);
             currentHoldTime = 0;
             GameManager._instance.playerUI.UpdateDoorUI(currentHoldTime);
             animator.SetBool("isOpen", true);
@@ -68,6 +88,7 @@ public class Door : Interactable
     private IEnumerator DoorCloseDelay()
     {
         yield return new WaitForSeconds(doorCloseTime);
+        audioSource.PlayOneShot(closeSFX);
         animator.SetBool("isOpen", false);
 
     }
