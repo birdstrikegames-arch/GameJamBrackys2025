@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LitToon
+  m_Name: LitToonBrick
   m_Shader: {fileID: -6465566751694194690, guid: 439bd0c8486c84241ac4f99456aafc52, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -38,7 +38,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - MainTex:
-        m_Texture: {fileID: 2800000, guid: 9254fa79e4e317e4a8fa0cb47e50871d, type: 3}
+        m_Texture: {fileID: 2800000, guid: 62ae6b574f691b44494bee6c9920489b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Mask_R_Emission:
@@ -59,9 +59,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - Brightness_Rim: 2.92
-    - Rim_Power: 0.38
-    - Toon_Ramp_Offset: 0.42
+    - Brightness_Rim: 4.64
+    - Rim_Power: 10
+    - Toon_Ramp_Offset: 0.618
     - Toon_Ramp_Smoothness: 0
     - _Ambient: 1
     - _QueueControl: 0

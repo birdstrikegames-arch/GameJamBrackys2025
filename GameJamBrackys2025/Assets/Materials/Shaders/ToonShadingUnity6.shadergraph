@@ -161,6 +161,9 @@
         },
         {
             "m_Id": "614019f4bda44b6e8c6ff91b88b435a2"
+        },
+        {
+            "m_Id": "e42c8f24722348a5aa74a7f2eb58f499"
         }
     ],
     "m_GroupDatas": [
@@ -893,6 +896,27 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector2MaterialSlot",
+    "m_ObjectId": "0e62584b0c5f4c6bbae68357f2c94866",
+    "m_Id": 3,
+    "m_DisplayName": "Out",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Out",
+    "m_StageCapability": 3,
+    "m_Value": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "m_DefaultValue": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.DynamicValueMaterialSlot",
     "m_ObjectId": "104e9d11b98a47d580ead3fc825cf22b",
     "m_Id": 0,
@@ -1116,6 +1140,28 @@
     "m_Property": {
         "m_Id": "6c0e0e690efb42898861088b3c6fdd54"
     }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.UVMaterialSlot",
+    "m_ObjectId": "17814b180a8c49c08bd1bdc068b980ea",
+    "m_Id": 0,
+    "m_DisplayName": "UV",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "UV",
+    "m_StageCapability": 3,
+    "m_Value": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "m_DefaultValue": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "m_Labels": [],
+    "m_Channel": 0
 }
 
 {
@@ -1840,7 +1886,7 @@
     "m_Title": "ToonLighting",
     "m_Position": {
         "x": -2397.000244140625,
-        "y": -479.0002746582031
+        "y": -479.0
     }
 }
 
@@ -2569,7 +2615,7 @@
     "m_Title": "Mask",
     "m_Position": {
         "x": 136.0,
-        "y": -950.0
+        "y": -949.9998779296875
     }
 }
 
@@ -3204,7 +3250,7 @@
     "m_ObjectId": "9289c7fbccec46adb299de89becd3136",
     "m_Title": "Texture",
     "m_Position": {
-        "x": -1547.0001220703125,
+        "x": -1547.0,
         "y": -1555.0
     }
 }
@@ -3843,6 +3889,27 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector2MaterialSlot",
+    "m_ObjectId": "b612192089cd44c581770e3477b228d8",
+    "m_Id": 2,
+    "m_DisplayName": "Offset",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Offset",
+    "m_StageCapability": 3,
+    "m_Value": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "m_DefaultValue": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.DynamicValueMaterialSlot",
     "m_ObjectId": "b978eb2c730647d0becbfbf0e315ceb4",
     "m_Id": 1,
@@ -4334,6 +4401,27 @@
 }
 
 {
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector2MaterialSlot",
+    "m_ObjectId": "d0c5269f61c94235809671f38ece8b0e",
+    "m_Id": 1,
+    "m_DisplayName": "Tiling",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Tiling",
+    "m_StageCapability": 3,
+    "m_Value": {
+        "x": 1.0,
+        "y": 1.0
+    },
+    "m_DefaultValue": {
+        "x": 1.0,
+        "y": 1.0
+    },
+    "m_Labels": []
+}
+
+{
     "m_SGVersion": 1,
     "m_Type": "UnityEditor.Rendering.Universal.ShaderGraph.UniversalTarget",
     "m_ObjectId": "d2949a4be0a74bc4813cf872cecdcad3",
@@ -4587,6 +4675,51 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.TilingAndOffsetNode",
+    "m_ObjectId": "e42c8f24722348a5aa74a7f2eb58f499",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "Tiling And Offset",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": -1250.9998779296875,
+            "y": -1741.9998779296875,
+            "width": 153.9998779296875,
+            "height": 141.9998779296875
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "17814b180a8c49c08bd1bdc068b980ea"
+        },
+        {
+            "m_Id": "d0c5269f61c94235809671f38ece8b0e"
+        },
+        {
+            "m_Id": "b612192089cd44c581770e3477b228d8"
+        },
+        {
+            "m_Id": "0e62584b0c5f4c6bbae68357f2c94866"
+        }
+    ],
+    "synonyms": [
+        "pan",
+        "scale"
+    ],
+    "m_Precision": 0,
+    "m_PreviewExpanded": false,
+    "m_DismissedVersion": 0,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    }
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.MainLightDirectionNode",
     "m_ObjectId": "e65730fd91b145e69750ea1c56bd66ee",
     "m_Group": {
@@ -4737,7 +4870,7 @@
     "m_Title": "RimLight",
     "m_Position": {
         "x": -1717.0001220703125,
-        "y": -1009.0001220703125
+        "y": -1008.9998779296875
     }
 }
 
