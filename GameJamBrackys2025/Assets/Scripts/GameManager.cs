@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public bool hasLost;
     public bool hasCollectedCookies;
 
+    public GameObject winPanel;
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -60,11 +62,14 @@ public class GameManager : MonoBehaviour
 
     private void GameWin()
     {
-        Debug.Log("game won");
+        winPanel.SetActive(true);
+        player.SetActive(false);
     }
     private void GameLost()
     {
         Debug.Log("game lost");
     }
+
+    
 
 }
