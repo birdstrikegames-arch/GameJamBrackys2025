@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LitToonTile
+  m_Name: LitToonTile 1
   m_Shader: {fileID: -6465566751694194690, guid: 439bd0c8486c84241ac4f99456aafc52, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -38,7 +38,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - MainTex:
-        m_Texture: {fileID: 2800000, guid: 9813b4ab868c66a479d84304896a290b, type: 3}
+        m_Texture: {fileID: 10307, guid: 0000000000000000f000000000000000, type: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Mask_R_Emission:
@@ -69,7 +69,7 @@ Material:
     - _Toon_Ramp_Offset_Point: 0.206
     m_Colors:
     - Toon_Ramp_Tint: {r: 0.58041567, g: 0.51397294, b: 0.6603774, a: 1}
-    - _Color: {r: 0.60784316, g: 0.6666667, b: 0.74509805, a: 1}
+    - _Color: {r: 0.34376115, g: 0.49966946, b: 0.7075472, a: 1}
     - _Tiling: {r: 20, g: 20, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
