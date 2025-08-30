@@ -8338,6 +8338,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2201584850815540997, guid: 7fb95abfba87f1d40af7bac98da8090c, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: bfe86ce2eee2cf141aa1076d4dafed84, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10178,6 +10182,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5008390740913639024, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: dfc157510155d344fb6cecdb4419523c, type: 2}
+    - target: {fileID: 5049363779112993539, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: dfc157510155d344fb6cecdb4419523c, type: 2}
     - target: {fileID: 9009339744400450184, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
       propertyPath: m_Name
       value: HouseNewNew
