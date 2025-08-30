@@ -2158,7 +2158,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -8326,7 +8326,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1971646543
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9078,6 +9078,10 @@ PrefabInstance:
     - target: {fileID: 3218659861051021893, guid: 9c62aa1e037bcba4ab6c48c726bfd497, type: 3}
       propertyPath: m_Name
       value: FadeIn
+      objectReference: {fileID: 0}
+    - target: {fileID: 3218659861051021893, guid: 9c62aa1e037bcba4ab6c48c726bfd497, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7777365848739873443, guid: 9c62aa1e037bcba4ab6c48c726bfd497, type: 3}
       propertyPath: m_Pivot.x
