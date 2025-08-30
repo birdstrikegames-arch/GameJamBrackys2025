@@ -43,6 +43,7 @@ public class InputManager : MonoBehaviour
 
     void Update()
     {
+        if(PauseMenuController.Instance.isPaused) return;
         moveInput = InputMap.Player.Move.ReadValue<Vector2>();
         lookInput = InputMap.Player.Look.ReadValue<Vector2>();
         onJump = InputMap.Player.Jump.triggered;

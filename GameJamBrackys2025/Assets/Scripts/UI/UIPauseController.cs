@@ -4,6 +4,7 @@ using System.Collections;
 
 public class PauseMenuController : MonoBehaviour
 {
+    public static PauseMenuController Instance { get; private set; }
     [Header("References")]
     public GameObject pausePanel;
     public GameObject loadingPanel;
@@ -11,7 +12,18 @@ public class PauseMenuController : MonoBehaviour
     [Header("Settings")]
     public float loadingDelay = 4f;
 
-    private bool isPaused = false;
+    public bool isPaused = false;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+            Destroy(gameObject);
+        else
+        {
+            Instance = this;
+        }
+
+    }
 
     void Update()
     {
@@ -29,6 +41,8 @@ public class PauseMenuController : MonoBehaviour
         if (pausePanel != null)
             pausePanel.SetActive(true);
 
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
         Time.timeScale = 0f;
         isPaused = true;
     }
@@ -38,6 +52,8 @@ public class PauseMenuController : MonoBehaviour
         if (pausePanel != null)
             pausePanel.SetActive(false);
 
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         Time.timeScale = 1f;
         isPaused = false;
     }

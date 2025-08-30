@@ -8238,6 +8238,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: House (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 542559057056963150, guid: 7fb95abfba87f1d40af7bac98da8090c, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1064737500018386026, guid: 7fb95abfba87f1d40af7bac98da8090c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.21
@@ -8763,7 +8767,8 @@ MonoBehaviour:
   hasBroom: 0
   hasLost: 0
   hasCollectedCookies: 0
-  winPanel: {fileID: 0}
+  winPanel: {fileID: 1334697223}
+  losePanel: {fileID: 0}
 --- !u!4 &2012587921
 Transform:
   m_ObjectHideFlags: 0
@@ -9221,6 +9226,7 @@ MonoBehaviour:
   pausePanel: {fileID: 1253430254}
   loadingPanel: {fileID: 983411466}
   loadingDelay: 2.25
+  isPaused: 0
 --- !u!4 &2127275571
 Transform:
   m_ObjectHideFlags: 0

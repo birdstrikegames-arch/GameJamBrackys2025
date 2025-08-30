@@ -927,7 +927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 1925313615}
-  dogSpeed: 2
+  dogSpeed: 1
 --- !u!1 &2080169325
 GameObject:
   m_ObjectHideFlags: 0
