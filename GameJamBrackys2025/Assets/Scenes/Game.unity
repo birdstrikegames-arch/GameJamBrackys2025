@@ -11772,10 +11772,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 257685825661651239, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e046bc5edfb56ef459e859b457040c36, type: 2}
     - target: {fileID: 1382225211760121056, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
       propertyPath: m_Name
       value: DoubleDoorChimney
       objectReference: {fileID: 0}
+    - target: {fileID: 1519097875462437757, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8e2e2874ee12c0d49a58a695634baceb, type: 2}
+    - target: {fileID: 3496257259770225199, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e046bc5edfb56ef459e859b457040c36, type: 2}
     - target: {fileID: 3594142289391704872, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
       propertyPath: m_TagString
       value: Door
@@ -11828,14 +11840,18 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Door
       objectReference: {fileID: 0}
+    - target: {fileID: 4590476008825509063, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 40fa570d771688f4da2a39e55468ae31, type: 2}
     - target: {fileID: 5008390740913639024, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: dfc157510155d344fb6cecdb4419523c, type: 2}
+      objectReference: {fileID: 2100000, guid: e046bc5edfb56ef459e859b457040c36, type: 2}
     - target: {fileID: 5049363779112993539, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: dfc157510155d344fb6cecdb4419523c, type: 2}
+      objectReference: {fileID: 2100000, guid: 8e2e2874ee12c0d49a58a695634baceb, type: 2}
     - target: {fileID: 6156037556037654483, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
       propertyPath: m_TagString
       value: Door
@@ -11843,6 +11859,18 @@ PrefabInstance:
     - target: {fileID: 6510961819820791624, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
       propertyPath: m_Name
       value: DoubleDoorDiningRoom
+      objectReference: {fileID: 0}
+    - target: {fileID: 7646826984398878714, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8e2e2874ee12c0d49a58a695634baceb, type: 2}
+    - target: {fileID: 7646826984398878714, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 40fa570d771688f4da2a39e55468ae31, type: 2}
+    - target: {fileID: 7853601398428086185, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8584221663852472164, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
       propertyPath: m_TagString
