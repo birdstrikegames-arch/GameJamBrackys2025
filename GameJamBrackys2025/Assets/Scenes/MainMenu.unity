@@ -2357,9 +2357,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Agustina Musante B\xF6thig\nAnna Rastostsenkova\nClara Lorenz\nFadi Khoury\nMarta
-    Vedral\nNathalie Branco\n\nMUSIC\nFREE Ambient Instrumental Music by Will Elfer\n\nSFX\nfreesound_community
-    (pixabay)\n\n3D ASSETS\nPolyStang CC by Faber Brizio"
+  m_text: "Agustina Musante B\xF6thig\n3D\n\nAnna Rastostsenkova\nVFX, 3D\n\nClara
+    Lorenz\nGame, Level & Sound Design, UI\n\nFadi Khoury\nCode\n\nMarta Vedral\nUI,
+    Texturing, 3D Support\n\nNathalie Branco\n2D Art, Narrative & Game Design, Animation\n\n\n\nMUSIC\nFREE
+    Ambient Instrumental Music by Will Elfer\n\nSFX\nfreesound_community (pixabay)\n\n3D
+    ASSETS\nPolyStang CC by Faber Brizio\nLow Poly Kitchen Set by HunterCraft Creations\nFood
+    Pack by Mumifier Studio\nKitchen Food low poly pack by Pandazole"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 17a89cbc95b7376489890660e89970b3, type: 2}
   m_sharedMaterial: {fileID: 7572875399233399158, guid: 17a89cbc95b7376489890660e89970b3, type: 2}
