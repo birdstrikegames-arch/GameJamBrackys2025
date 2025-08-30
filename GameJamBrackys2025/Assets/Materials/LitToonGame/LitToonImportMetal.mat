@@ -22,7 +22,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: LitToonImportMetal
   m_Shader: {fileID: -6465566751694194690, guid: 439bd0c8486c84241ac4f99456aafc52, type: 3}
-  m_Parent: {fileID: 2100000, guid: f6a2f238e358a6f448ecc8df07187e42, type: 2}
+  m_Parent: {fileID: 2100000, guid: bfe86ce2eee2cf141aa1076d4dafed84, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
