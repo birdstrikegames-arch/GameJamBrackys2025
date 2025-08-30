@@ -8,12 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: d8ed1318e58b6ff47a3524cd5310babe
-  - enabled: 0
-    path: Assets/Fadi's Dark testing hole/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Cutscene.unity
+    guid: ba470f65d0d1717429df8206a5fc7ebc
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 825d17f174996ed499b35bd6bff15af3
+  - enabled: 0
+    path: Assets/Fadi's Dark testing hole/SampleScene.unity
+    guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 0
     path: Assets/Scenes/Game New.unity
     guid: 8b62a6b426cf4d04e992cd32270ea681
