@@ -2362,7 +2362,8 @@ MonoBehaviour:
     Texturing, 3D Support\n\nNathalie Branco\n2D Art, Narrative & Game Design, Animation\n\n\n\nMUSIC\nFREE
     Ambient Instrumental Music by Will Elfer\n\nSFX\nfreesound_community (pixabay)\n\n3D
     ASSETS\nPolyStang CC by Faber Brizio\nLow Poly Kitchen Set by HunterCraft Creations\nFood
-    Pack by Mumifier Studio\nKitchen Food low poly pack by Pandazole"
+    Pack by Mumifier Studio\nKitchen Food low poly pack by Pandazole\nHome interior
+    low poly pack by Pandazole"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 17a89cbc95b7376489890660e89970b3, type: 2}
   m_sharedMaterial: {fileID: 7572875399233399158, guid: 17a89cbc95b7376489890660e89970b3, type: 2}
@@ -4961,8 +4962,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 10}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 700, y: 250}
+  m_AnchoredPosition: {x: 171, y: -36}
+  m_SizeDelta: {x: 1058, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1990828615
 MonoBehaviour:
@@ -4984,7 +4985,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Skibidi\n    Cookies"
+  m_text: 'The
+
+    Biscuit Before Christmas'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e65570de4d4c94949b1769f8f1674ff4, type: 2}
   m_sharedMaterial: {fileID: 8066913283373562392, guid: e65570de4d4c94949b1769f8f1674ff4, type: 2}
