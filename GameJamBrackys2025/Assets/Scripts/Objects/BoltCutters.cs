@@ -8,5 +8,6 @@ public class BoltCutters : Interactable
     {
         audioSource.PlayOneShot(interactSFX);
         GameManager._instance.hasBoltCutters = true;
+        Destroy(gameObject);
     }
 }

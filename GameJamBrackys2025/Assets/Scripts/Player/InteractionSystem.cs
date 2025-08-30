@@ -107,6 +107,19 @@ public class InteractionSystem : MonoBehaviour
 
             if (hit.collider.TryGetComponent(out Door door))
                 FocusedDoor = door;
+
+            else
+            {
+                if (hit.collider.TryGetComponent(out Interactable interaction) && Input.GetKeyDown(KeyCode.E))
+                {
+                    interaction = hit.collider.GetComponent<Interactable>();
+                    if (interaction != null)
+                    {
+                        interaction.Interact();
+                    }
+                }
+            }
+
         }
         else
         {

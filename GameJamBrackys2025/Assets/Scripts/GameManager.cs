@@ -19,6 +19,10 @@ public class GameManager : MonoBehaviour
     public GameObject winPanel;
     public GameObject losePanel;
 
+    public GameObject[] dogSpawnPoints;
+    public GameObject dawgPrefab;
+    private bool hasDogSpawned = false;
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -46,6 +50,10 @@ public class GameManager : MonoBehaviour
         if (loudnessLevel <= 0)
             loudnessLevel = 0;
 
+
+        if (loudnessLevel >= playerUI.GetComponent<PlayerUI>().sliderMax && !hasDogSpawned)
+            SpawnDog();
+
         if (hasCollectedCookies)
             GameWin();
 
@@ -53,6 +61,13 @@ public class GameManager : MonoBehaviour
             GameLost();
 
 
+    }
+
+    public void SpawnDog()
+    {
+        hasDogSpawned = true;
+        int i = Random.Range(0, dogSpawnPoints.Length);
+        GameObject dwag = Instantiate(dawgPrefab, dogSpawnPoints[i].transform.position, Quaternion.identity);
     }
 
 
@@ -68,10 +83,15 @@ public class GameManager : MonoBehaviour
     }
     private void GameLost()
     {
-       losePanel.SetActive(true);
+        losePanel.SetActive(true);
         player.SetActive(false);
+        Time.timeScale = 0;
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
     }
 
-    
+
+
+
 
 }
