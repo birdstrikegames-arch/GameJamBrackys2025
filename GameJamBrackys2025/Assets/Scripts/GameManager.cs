@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject[] dogSpawnPoints;
     public GameObject dawgPrefab;
+    public GameObject sleepingDogModel;
     private bool hasDogSpawned = false;
 
     private void Awake()
@@ -66,6 +67,7 @@ public class GameManager : MonoBehaviour
     public void SpawnDog()
     {
         hasDogSpawned = true;
+        sleepingDogModel.SetActive(false);
         int i = Random.Range(0, dogSpawnPoints.Length);
         GameObject dwag = Instantiate(dawgPrefab, dogSpawnPoints[i].transform.position, Quaternion.identity);
     }
