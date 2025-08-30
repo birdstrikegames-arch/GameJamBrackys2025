@@ -8,6 +8,7 @@ public class Key : Interactable
     {
         audioSource.PlayOneShot(interactSFX);
         GameManager._instance.hasKey = true;
+        Destroy(gameObject);
     }
 
 

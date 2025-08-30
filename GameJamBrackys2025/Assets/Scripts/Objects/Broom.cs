@@ -8,5 +8,6 @@ public class Broom : Interactable
     {
         audioSource.PlayOneShot(interactSFX);
         GameManager._instance.hasBroom = true;
+        Destroy(gameObject);
     }
 }

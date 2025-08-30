@@ -12,6 +12,7 @@ public class UILoadingController : MonoBehaviour
 
     public void LoadScene(int sceneIndex)
     {
+        Time.timeScale = 1;
         StartCoroutine(LoadSceneRoutine(sceneIndex));
     }
 

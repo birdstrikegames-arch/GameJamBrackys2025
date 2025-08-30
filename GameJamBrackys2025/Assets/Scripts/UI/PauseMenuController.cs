@@ -60,6 +60,12 @@ public class PauseMenuController : MonoBehaviour
 
     public void RestartGame()
     {
+        Time.timeScale = 1f;
+        isPaused = false;
+        pausePanel.SetActive(false);
+        if (loadingPanel != null)
+            loadingPanel.SetActive(true);
+
         StartCoroutine(RestartRoutine());
     }
 
@@ -68,15 +74,11 @@ public class PauseMenuController : MonoBehaviour
         if (pausePanel != null)
             pausePanel.SetActive(false);
 
-        if (loadingPanel != null)
-            loadingPanel.SetActive(true);
 
-        Time.timeScale = 0f;
-        isPaused = false;
+        //Time.timeScale = 0f;
 
         yield return new WaitForSecondsRealtime(loadingDelay);
 
-        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -93,12 +95,12 @@ public class PauseMenuController : MonoBehaviour
         if (loadingPanel != null)
             loadingPanel.SetActive(true);
 
-        Time.timeScale = 0f;
+        // Time.timeScale = 0f;
         isPaused = false;
+        Time.timeScale = 1f;
 
         yield return new WaitForSecondsRealtime(loadingDelay);
 
-        Time.timeScale = 1f;
         SceneManager.LoadScene(sceneIndex);
     }
 }

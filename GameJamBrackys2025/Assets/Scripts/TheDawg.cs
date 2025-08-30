@@ -25,9 +25,12 @@ public class TheDawg : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        //Debug.Log("dawg touched" + collision.collider.name);
         if (collision.collider.CompareTag("Player"))
         {
             Debug.Log("walking on dawg");
+            GameManager._instance.hasLost = true;
+            
         }
     }
 }
