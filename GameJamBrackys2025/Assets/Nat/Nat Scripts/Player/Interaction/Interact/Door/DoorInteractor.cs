@@ -12,32 +12,40 @@ namespace Nat
         [SerializeField] private string closeTrigger = "Close";   // instant close
 
         [Header("Animation (Hold)")]
-        [SerializeField] private float holdDurationSeconds = 1.5f; // hold time to trigger slow action
-        [SerializeField] private string holdOpenTrigger = "OpenSlow";   // slow open trigger
-        [SerializeField] private string holdCloseTrigger = "";          // optional slow close trigger (leave empty to use instant close)
+        [SerializeField] private float holdDurationSeconds = 1.5f;    // hold time to trigger slow action
+        [SerializeField] private string holdOpenTrigger = "OpenSlow"; // slow open trigger
+        [SerializeField] private string holdCloseTrigger = "";         // optional slow close trigger (leave empty to use instant close)
 
         [Header("Locking")]
-        [SerializeField] private BoolFlag unlockCondition;        // if assigned, overrides manual lock
-        [SerializeField] private bool isLocked = false;           // used only when unlockCondition is null
+        [SerializeField] private BoolFlag unlockCondition; // if assigned, overrides manual lock
+        [SerializeField] private bool isLocked = false;    // used only when unlockCondition is null
 
         [Header("Cooldown")]
         [SerializeField] private float cooldownTime = 0.75f;
         private bool isCoolingDown = false;
 
-        [Header("Sound")]
+        [Header("Sound Clips")]
         [SerializeField] private AudioSource audioSource;
-        [SerializeField] private AudioClip openSound;
-        [SerializeField] private AudioClip closeSound;
+        [SerializeField] private AudioClip fastClip;    // used for both fast open/close
+        [SerializeField] private AudioClip slowClip;    // used for both slow open/close
+        [SerializeField] private AudioClip lockedClip;  // plays when interacting with a locked door
         [SerializeField] private float closeSoundDelay = 0.0f;
 
         [Header("UI Text (fully manual)")]
         [SerializeField] private string descriptionWhenClosed = "Open [E] / Hold [E] for slow open";
-        [SerializeField] private string descriptionWhenOpen   = "Close [E]";
+        [SerializeField] private string descriptionWhenOpen = "Close [E]";
         [SerializeField] private string descriptionWhenLocked = "Locked";
 
         // State
         [SerializeField] private bool isOpen = false;
-        private bool isInteracting = false;  // prevents overlapping sessions
+        private bool isInteracting = false;
+
+        // Events for external hooks (e.g., LoudInteraction with isDoor = true)
+        public event System.Action OnDoorOpenedFast;
+        public event System.Action OnDoorClosedFast;
+        public event System.Action OnDoorOpenedSlow;
+        public event System.Action OnDoorClosedSlow;
+        public event System.Action OnDoorLockedAttempt; // NEW: fired when player tries to use a locked door
 
         // --- IInteractable ---
         public string GetDescription()
@@ -49,29 +57,27 @@ namespace Nat
         public void Interact()
         {
             if (isCoolingDown || isInteracting) return;
-
-            // Start a short interaction session that decides: instant vs slow based on hold time.
             StartCoroutine(HandleInteractionSession());
         }
 
-        // --- Interaction decision (tap vs hold) ---
         private IEnumerator HandleInteractionSession()
         {
             isInteracting = true;
 
-            // If locked, bail (UI already shows "Locked")
             if (IsDoorLocked())
             {
+                // Locked feedback
+                PlayOneShot(lockedClip);
+                OnDoorLockedAttempt?.Invoke(); // notify listeners (e.g., LoudInteraction) to add loudness
                 isInteracting = false;
                 yield break;
             }
 
             float timer = 0f;
 
-            // Wait while E is held, up to threshold. We use unscaled time so it also works if the game gets paused elsewhere.
+            // wait to determine tap vs hold (uses unscaled time so it works if someone pauses time elsewhere)
             while (Input.GetKey(KeyCode.E))
             {
-                // If something changed mid-hold (lock triggered or cooldown started), abort gracefully
                 if (isCoolingDown || IsDoorLocked())
                 {
                     isInteracting = false;
@@ -83,20 +89,17 @@ namespace Nat
                 yield return null;
             }
 
-            // Decide action
             bool didHoldLongEnough = timer >= holdDurationSeconds;
 
             if (didHoldLongEnough)
             {
-                // SLOW path (open/close)
                 if (!isOpen) OpenDoorSlow();
-                else CloseDoorSlow();  // uses holdCloseTrigger if provided, else instant close fallback
+                else CloseDoorSlow();
             }
             else
             {
-                // INSTANT path (open/close)
-                if (!isOpen) OpenDoorInstant();
-                else CloseDoorInstant();
+                if (!isOpen) OpenDoorFast();
+                else CloseDoorFast();
             }
 
             isInteracting = false;
@@ -109,18 +112,20 @@ namespace Nat
             return isLocked;
         }
 
-        private void OpenDoorInstant()
+        private void OpenDoorFast()
         {
             isOpen = true;
 
             if (doorAnimator != null && !string.IsNullOrEmpty(openTrigger))
                 doorAnimator.SetTrigger(openTrigger);
 
-            PlayOneShot(openSound);
+            PlayOneShot(fastClip);
+
+            OnDoorOpenedFast?.Invoke();
             StartCoroutine(Cooldown());
         }
 
-        private void CloseDoorInstant()
+        private void CloseDoorFast()
         {
             isOpen = false;
 
@@ -129,15 +134,16 @@ namespace Nat
                 if (!string.IsNullOrEmpty(closeTrigger))
                     doorAnimator.SetTrigger(closeTrigger);
                 else if (!string.IsNullOrEmpty(openTrigger))
-                    doorAnimator.ResetTrigger(openTrigger); // fallback if you only animate one-way
+                    doorAnimator.ResetTrigger(openTrigger);
             }
 
-            if (closeSound != null)
+            if (fastClip != null)
             {
-                if (closeSoundDelay <= 0f) PlayOneShot(closeSound);
-                else StartCoroutine(DelayedCloseSound());
+                if (closeSoundDelay <= 0f) PlayOneShot(fastClip);
+                else StartCoroutine(DelayedCloseSound(fastClip));
             }
 
+            OnDoorClosedFast?.Invoke();
             StartCoroutine(Cooldown());
         }
 
@@ -150,10 +156,12 @@ namespace Nat
                 if (!string.IsNullOrEmpty(holdOpenTrigger))
                     doorAnimator.SetTrigger(holdOpenTrigger);
                 else if (!string.IsNullOrEmpty(openTrigger))
-                    doorAnimator.SetTrigger(openTrigger); // fallback to instant trigger if slow not set
+                    doorAnimator.SetTrigger(openTrigger); // fallback
             }
 
-            PlayOneShot(openSound);
+            PlayOneShot(slowClip);
+
+            OnDoorOpenedSlow?.Invoke();
             StartCoroutine(Cooldown());
         }
 
@@ -171,25 +179,27 @@ namespace Nat
                     doorAnimator.ResetTrigger(openTrigger);
             }
 
-            if (closeSound != null)
+            if (slowClip != null)
             {
-                if (closeSoundDelay <= 0f) PlayOneShot(closeSound);
-                else StartCoroutine(DelayedCloseSound());
+                if (closeSoundDelay <= 0f) PlayOneShot(slowClip);
+                else StartCoroutine(DelayedCloseSound(slowClip));
             }
 
+            OnDoorClosedSlow?.Invoke();
             StartCoroutine(Cooldown());
         }
 
+        // --- Audio helpers ---
         private void PlayOneShot(AudioClip clip)
         {
             if (audioSource != null && clip != null)
                 audioSource.PlayOneShot(clip);
         }
 
-        private IEnumerator DelayedCloseSound()
+        private IEnumerator DelayedCloseSound(AudioClip clip)
         {
             yield return new WaitForSeconds(closeSoundDelay);
-            PlayOneShot(closeSound);
+            PlayOneShot(clip);
         }
 
         private IEnumerator Cooldown()

@@ -1,4 +1,5 @@
-using System.Collections;
+// File: PlayerInteraction.cs
+// Adds: after calling interactable.Interact(), auto-apply LoudInteraction generic if present (and not a door).
 using UnityEngine;
 using TMPro;
 
@@ -6,56 +7,59 @@ namespace Nat
 {
     public class PlayerInteraction : MonoBehaviour
     {
-        public Camera mainCam;
-        public float interactionDistance = 2f;
+        [SerializeField] private Camera mainCam;
+        [SerializeField] private float interactDistance = 3f;
+        [SerializeField] private LayerMask interactMask = ~0;
 
-        public GameObject interactionUI;
-        public TextMeshProUGUI interactionText;
+        [Header("UI")]
+        [SerializeField] private GameObject interactionUI;
+        [SerializeField] private TextMeshProUGUI interactionText;
 
-        private void Update()
+        private IInteractable current;
+        private Collider currentCollider;
+
+        void Awake()
         {
-            InteractionRay();
+            if (mainCam == null) mainCam = Camera.main;
         }
 
-        void InteractionRay()
+        void Update()
         {
-            Ray ray = mainCam.ViewportPointToRay(Vector3.one / 2f);
-            RaycastHit hit;
-
-            bool hitSomething = false;
-
-            if (Physics.Raycast(ray, out hit, interactionDistance))
+            // center ray
+            Ray ray = mainCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+            if (Physics.Raycast(ray, out RaycastHit hit, interactDistance, interactMask, QueryTriggerInteraction.Ignore))
             {
-                IInteractable interactable = hit.collider.GetComponent<IInteractable>();
-
-                if (interactable != null)
+                if (hit.collider.TryGetComponent<IInteractable>(out var interactable))
                 {
-                    string description = interactable.GetDescription();
-                    bool show = !string.IsNullOrEmpty(description);
+                    current = interactable;
+                    currentCollider = hit.collider;
 
-                    if (show)
-                    {
-                        interactionText.text = description;
-                        interactionUI.SetActive(true);
-                    }
-                    else
-                    {
-                        interactionUI.SetActive(false);
-                    }
-
-                    hitSomething = show;
+                    // show prompt
+                    string desc = current.GetDescription();
+                    bool show = !string.IsNullOrEmpty(desc);
+                    if (interactionUI != null) interactionUI.SetActive(show);
+                    if (show && interactionText != null) interactionText.text = desc;
 
                     if (Input.GetKeyDown(KeyCode.E))
                     {
-                        interactable.Interact();
+                        current.Interact();
+
+                        // NEW: auto-apply generic loudness if a LoudInteraction is present and NOT a door
+                        var loud = currentCollider.GetComponentInParent<LoudInteraction>();
+                        if (loud != null && !loud.IsDoor)
+                        {
+                            loud.ApplyGeneric();
+                        }
                     }
+
+                    return;
                 }
             }
 
-            if (!hitSomething)
-            {
-                interactionUI.SetActive(false);
-            }
+            // nothing hit or no interactable
+            current = null;
+            currentCollider = null;
+            if (interactionUI != null) interactionUI.SetActive(false);
         }
     }
 }
