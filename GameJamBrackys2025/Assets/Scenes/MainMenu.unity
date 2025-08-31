@@ -3404,12 +3404,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Agustina Musante B\xF6thig\n3D\n\nAnna Rastostsenkova\nVFX, 3D\n\nClara
-    Lorenz\nGame, Level & Sound Design, UI\n\nFadi Khoury\nCode\n\nMarta Vedral\nUI,
-    Texturing, 3D Support\n\nNathalie Branco\n2D Art, Code, Narrative & Game Design,
-    Animation\n\n\n\nMUSIC\nFREE Ambient Instrumental Music by Will Elfer\n\nSFX\nfreesound_community
-    (pixabay)\n\n3D ASSETS\nPolyStang CC by Faber Brizio\nLow Poly Kitchen Set by
-    HunterCraft Creations\nFood Pack by Mumifier Studio\nKitchen Food low poly pack
-    by Pandazole\nHome interior low poly pack by Pandazole\nSimple piano by Aiaruzo"
+    Lorenz\nGame, Level & Sound Design, UI\n\nFadi Khoury\nCode\n\nMarta Vedral\n2D
+    Art, UI, 3D Support, Texturing, Level Design\n\nNathalie Branco\n2D Art, Narrative
+    & Game Design, Animation, Code Support\n\n\n\nMUSIC\nFREE Ambient Instrumental
+    Music by Will Elfer\n\nSFX\nfreesound_community (pixabay)\n\n3D ASSETS\nPolyStang
+    CC by Faber Brizio\nLow Poly Kitchen Set by HunterCraft Creations\nFood Pack
+    by Mumifier Studio\nKitchen Food low poly pack by Pandazole\nHome interior low
+    poly pack by Pandazole\nSimple piano by Aiaruzo"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 17a89cbc95b7376489890660e89970b3, type: 2}
   m_sharedMaterial: {fileID: 7572875399233399158, guid: 17a89cbc95b7376489890660e89970b3, type: 2}
