@@ -1,35 +1,54 @@
+// File: Tutorial.cs
 using UnityEngine;
+using TMPro;
 
-public class Tutorial : MonoBehaviour
+namespace Nat
 {
-    [Header("Assign in Inspector")]
-    [Tooltip("The player's collider (e.g., CharacterController or CapsuleCollider).")]
-    public Collider playerCollider;
-
-    [Tooltip("The UI element to show while the player is in the trigger.")]
-    public GameObject tutorialUI;
-
-    private void Start()
+    /// <summary>
+    /// Enables a TMP object and shows a custom message when the player enters a trigger.
+    /// - Drag a TextMeshProUGUI into 'tutorialText' in the Inspector.
+    /// - Set the 'message' you want displayed.
+    /// - Optionally hide the text again on exit with 'hideOnExit'.
+    /// </summary>
+    [RequireComponent(typeof(Collider))]
+    public class Tutorial : MonoBehaviour
     {
-        if (tutorialUI != null)
-            tutorialUI.SetActive(false); // Hide by default
-    }
+        [Header("UI")]
+        [SerializeField] private TextMeshProUGUI tutorialText;
+        [TextArea]
+        [SerializeField] private string message = "Use WASD to move.";
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other == playerCollider)
+        [Header("Trigger Settings")]
+        [SerializeField] private string playerTag = "Player";
+        [Tooltip("If true, hides the TMP object again when the player exits the trigger.")]
+        [SerializeField] private bool hideOnExit = false;
+
+        private void Reset()
         {
-            if (tutorialUI != null)
-                tutorialUI.SetActive(true);
+            var col = GetComponent<Collider>();
+            if (col) col.isTrigger = true;
         }
-    }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other == playerCollider)
+        private void OnTriggerEnter(Collider other)
         {
-            if (tutorialUI != null)
-                tutorialUI.SetActive(false);
+            if (!other.CompareTag(playerTag)) return;
+
+            if (tutorialText != null)
+            {
+                tutorialText.text = message;
+                tutorialText.gameObject.SetActive(true);
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (!other.CompareTag(playerTag)) return;
+            if (!hideOnExit) return;
+
+            if (tutorialText != null)
+            {
+                tutorialText.gameObject.SetActive(false);
+            }
         }
     }
 }
