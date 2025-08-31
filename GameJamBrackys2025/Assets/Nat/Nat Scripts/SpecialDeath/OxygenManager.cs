@@ -7,48 +7,30 @@ using TMPro;
 namespace Nat
 {
     /// <summary>
-    /// Handles the player's oxygen UI and depletion/regen logic.
-    /// - Slider stays full at start; HUD hidden when full & not changing.
-    /// - Depletes while one or more drains are registered (e.g., CarbonMonoxide zones).
-    /// - Regenerates when no drains are active, after a delay.
-    /// - On zero: trigger animator, freeze player, then pause + show Game Over with TMP message.
+    /// Oxygen depletion/regen with HUD. On zero oxygen, calls Death.
     /// </summary>
     public class OxygenManager : MonoBehaviour
     {
         [Header("UI")]
-        [SerializeField] private Slider oxygenSlider;                  // Assign UI Slider
-        [SerializeField] private GameObject oxygenHudRoot;             // Canvas or panel to toggle
+        [SerializeField] private Slider oxygenSlider;
+        [SerializeField] private GameObject oxygenHudRoot;
         [SerializeField] private float maxOxygen = 100f;
 
-        [Header("Depletion (from hazards)")]
-        // Depletion is provided by external sources via RegisterDrain/UnregisterDrain.
-
         [Header("Regen (outside hazards)")]
-        [Tooltip("If true, oxygen will regenerate when no drains are active.")]
         [SerializeField] private bool enableRegen = true;
-        [Tooltip("Seconds after leaving all hazards before regen starts.")]
         [SerializeField] private float regenDelay = 1.0f;
-        [Tooltip("Oxygen per second recovered during regen.")]
         [SerializeField] private float regenPerSecond = 12f;
 
         [Header("Zero-Oxygen Consequence")]
-        [SerializeField] private Animator consequenceAnimator;         // Optional
+        [SerializeField] private Animator consequenceAnimator;   // passed to Death
         [SerializeField] private string consequenceTrigger = "Suffocate";
-        [Tooltip("Freeze duration (seconds) applied to PlayerMovement before showing Game Over.")]
-        [SerializeField] private float freezeDuration = 1.0f;
-        [Tooltip("Wait this many seconds (unscaled) before pausing and showing Game Over.")]
-        [SerializeField] private float timeBeforePause = 1.0f;
-        [SerializeField] private bool pauseGameOnZero = true;
-
-        [Header("Game Over UI")]
-        [SerializeField] private GameObject gameOverRoot;              // Enable on zero
-        [SerializeField] private TextMeshProUGUI gameOverMessageText;  // Optional TMP label
+        [SerializeField] private float freezeDuration = 1.0f;    // PlayerMovement freeze time (passed to Death)
+        [SerializeField] private float timeBeforePause = 1.0f;   // unscaled delay before pausing/GO UI
         [TextArea]
         [SerializeField] private string gameOverMessage = "You suffocated from carbon monoxide!";
 
         [Header("Player")]
-        [Tooltip("Optional: PlayerMovement to freeze. If null, only timeScale pause will stop motion.")]
-        [SerializeField] private PlayerMovement playerMovement;
+        [SerializeField] private PlayerMovement playerMovement;  // optional, passed to Death
 
         // Internal state
         private float currentOxygen;
@@ -70,7 +52,6 @@ namespace Nat
                 oxygenSlider.value = maxOxygen;
             }
 
-            // Assume we start outside hazards
             noDrainStartUnscaledTime = Time.unscaledTime;
             UpdateHudVisibility();
         }
@@ -79,33 +60,38 @@ namespace Nat
         {
             if (zeroHandled) return;
 
-            // Sum all active drain rates (per second)
             float totalDrain = 0f;
             foreach (var kv in activeDrains) totalDrain += kv.Value;
 
             if (totalDrain > 0f)
             {
-                // Depletion
                 currentOxygen = Mathf.Max(0f, currentOxygen - totalDrain * Time.deltaTime);
-                hadDrainLastFrame = true; // mark that we were draining this frame
+                hadDrainLastFrame = true;
                 SyncSlider();
                 UpdateHudVisibility();
 
                 if (currentOxygen <= 0f)
                 {
-                    StartCoroutine(HandleZeroOxygen());
+                    zeroHandled = true;
+                    // Hand off to Death manager
+                    Death.Instance?.Die(
+                        gameOverMessage,
+                        timeBeforePause,
+                        consequenceAnimator,
+                        consequenceTrigger,
+                        playerMovement,
+                        freezeDuration
+                    );
                 }
             }
             else
             {
-                // We are not draining this frame
                 if (hadDrainLastFrame)
                 {
                     hadDrainLastFrame = false;
-                    noDrainStartUnscaledTime = Time.unscaledTime; // start regen delay window now
+                    noDrainStartUnscaledTime = Time.unscaledTime;
                 }
 
-                // Regenerate if enabled, below max, and past the regen delay
                 if (enableRegen && currentOxygen < maxOxygen)
                 {
                     if (Time.unscaledTime - noDrainStartUnscaledTime >= regenDelay)
@@ -120,8 +106,6 @@ namespace Nat
         }
 
         // --- Public API ---
-
-        /// <summary>Register a depletion source (rate is oxygen per second).</summary>
         public void RegisterDrain(object key, float ratePerSecond)
         {
             if (key == null) return;
@@ -129,28 +113,35 @@ namespace Nat
             UpdateHudVisibility();
         }
 
-        /// <summary>Unregister a depletion source.</summary>
         public void UnregisterDrain(object key)
         {
             if (key == null) return;
             activeDrains.Remove(key);
-            // regen delay will be handled by Update via hadDrainLastFrame flip
             UpdateHudVisibility();
         }
 
-        /// <summary>Set oxygen directly (clamped 0..max) and update HUD.</summary>
         public void SetOxygen(float value)
         {
             if (zeroHandled) return;
             currentOxygen = Mathf.Clamp(value, 0f, maxOxygen);
-            // Start (or restart) regen delay when setting a value (useful if called after hazards)
             noDrainStartUnscaledTime = Time.unscaledTime;
             SyncSlider();
             UpdateHudVisibility();
-            if (currentOxygen <= 0f) StartCoroutine(HandleZeroOxygen());
+
+            if (currentOxygen <= 0f && !zeroHandled)
+            {
+                zeroHandled = true;
+                Death.Instance?.Die(
+                    gameOverMessage,
+                    timeBeforePause,
+                    consequenceAnimator,
+                    consequenceTrigger,
+                    playerMovement,
+                    freezeDuration
+                );
+            }
         }
 
-        /// <summary>Refill to max and hide HUD if no active drains.</summary>
         public void RefillToMax()
         {
             if (zeroHandled) return;
@@ -161,7 +152,6 @@ namespace Nat
         }
 
         // --- Internals ---
-
         private void SyncSlider()
         {
             if (oxygenSlider != null)
@@ -174,45 +164,10 @@ namespace Nat
 
             bool hasDrain = activeDrains.Count > 0;
             bool isFull = Mathf.Approximately(currentOxygen, maxOxygen);
-
-            // Show if depleting or not full; hide if full & no drain
             bool shouldShow = hasDrain || !isFull;
 
             if (oxygenHudRoot.activeSelf != shouldShow)
                 oxygenHudRoot.SetActive(shouldShow);
-        }
-
-        private System.Collections.IEnumerator HandleZeroOxygen()
-        {
-            zeroHandled = true;
-
-            // Trigger animation
-            if (consequenceAnimator != null && !string.IsNullOrEmpty(consequenceTrigger))
-                consequenceAnimator.SetTrigger(consequenceTrigger);
-
-            // Freeze movement briefly (still respects unscaled wait below)
-            if (playerMovement != null && freezeDuration > 0f)
-                playerMovement.FreezeMovement(freezeDuration);
-
-            // Wait unscaled time
-            float t = 0f;
-            float wait = Mathf.Max(0f, timeBeforePause);
-            while (t < wait)
-            {
-                t += Time.unscaledDeltaTime;
-                yield return null;
-            }
-
-            // Pause
-            if (pauseGameOnZero)
-                Time.timeScale = 0f;
-
-            // Show Game Over UI and message
-            if (gameOverRoot != null)
-                gameOverRoot.SetActive(true);
-
-            if (gameOverMessageText != null)
-                gameOverMessageText.text = gameOverMessage;
         }
     }
 }

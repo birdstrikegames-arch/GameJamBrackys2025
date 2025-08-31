@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 namespace Nat
 {
     /// <summary>
-    /// ESC to pause/resume. If Settings (or a deeper panel) is open, ESC returns to the main pause menu first.
+    /// ESC to pause/resume. If Settings (or deeper panel) is open, ESC returns to the main pause panel first.
+    /// Has separate Pause Root (entire overlay/canvas) and Pause Panel (home panel).
     /// Provides UI button hooks to Resume, Open Settings, Back to Pause Menu, Restart, and Go To Main Menu.
     /// </summary>
     public class GameManager : MonoBehaviour
@@ -13,9 +14,13 @@ namespace Nat
         public static GameManager Instance { get; private set; }
 
         [Header("UI Roots")]
-        [SerializeField] private GameObject pauseMenuRoot;     // main pause panel
-        [SerializeField] private GameObject settingsPanelRoot; // optional: a deeper panel under pause
-        [SerializeField] private GameObject overlaysToHideOnResume; // optional: any extra overlays to hide when resuming
+        [Tooltip("Top-level pause overlay/canvas that's enabled when pausing.")]
+        [SerializeField] private GameObject pauseRoot;          // NEW: overall pause canvas/overlay
+        [Tooltip("The main/home panel inside the pause overlay.")]
+        [SerializeField] private GameObject pauseMenuRoot;      // main pause panel (home)
+        [Tooltip("Settings (or any deeper) panel inside the pause overlay.")]
+        [SerializeField] private GameObject settingsPanelRoot;  // deeper panel (e.g., settings)
+        [SerializeField] private GameObject overlaysToHideOnResume; // optional extra overlays to hide on resume
 
         [Header("Scenes")]
         [Tooltip("Name of the Main Menu scene to load when 'Main Menu' is pressed.")]
@@ -27,31 +32,29 @@ namespace Nat
 
         public bool IsPaused { get; private set; }
 
-                // Add this field to GameManager
+        // Pause input lock (used by Win/Death/etc.)
         private bool pauseInputLocked = false;
 
-        // Public setter so other systems (like Win) can lock/unlock ESC handling
-        public void SetPauseInputLocked(bool locked)
-        {
-            pauseInputLocked = locked;
-        }
+        // Public setter so other systems (like Win/Death) can lock/unlock ESC handling
+        public void SetPauseInputLocked(bool locked) => pauseInputLocked = locked;
 
         private void Awake()
         {
             if (Instance != null && Instance != this) { Destroy(gameObject); return; }
             Instance = this;
-            // Optional: DontDestroyOnLoad(this.gameObject);
+            // Optional: DontDestroyOnLoad(gameObject);
 
             // Ensure initial UI state
-            if (pauseMenuRoot != null) pauseMenuRoot.SetActive(false);
-            if (settingsPanelRoot != null) settingsPanelRoot.SetActive(false);
+            SafeSetActive(pauseRoot, false);
+            SafeSetActive(pauseMenuRoot, false);
+            SafeSetActive(settingsPanelRoot, false);
 
             ApplyGameplayCursorState();
         }
 
         private void Update()
         {
-            if (pauseInputLocked) return; // <-- Ignore ESC while locked (e.g., during Win)
+            if (pauseInputLocked) return; // Ignore ESC while locked (e.g., during Win/Death)
 
             if (Input.GetKeyDown(KeyCode.Escape))
             {
@@ -61,10 +64,15 @@ namespace Nat
                 }
                 else
                 {
+                    // If a deeper panel (like Settings) is open, go back to main pause panel first
                     if (settingsPanelRoot != null && settingsPanelRoot.activeSelf)
+                    {
                         ShowPauseHome();
+                    }
                     else
+                    {
                         Resume();
+                    }
                 }
             }
         }
@@ -76,8 +84,9 @@ namespace Nat
         public void OnPressOpenSettings()
         {
             if (!IsPaused) Pause();
-            if (pauseMenuRoot != null) pauseMenuRoot.SetActive(false);
-            if (settingsPanelRoot != null) settingsPanelRoot.SetActive(true);
+            SafeSetActive(pauseRoot, true);
+            SafeSetActive(pauseMenuRoot, false);
+            SafeSetActive(settingsPanelRoot, true);
         }
 
         public void OnPressBackToPauseMenu() => ShowPauseHome();
@@ -93,8 +102,9 @@ namespace Nat
             IsPaused = true;
             Time.timeScale = 0f;
 
-            if (pauseMenuRoot != null) pauseMenuRoot.SetActive(true);
-            if (settingsPanelRoot != null) settingsPanelRoot.SetActive(false);
+            SafeSetActive(pauseRoot, true);
+            SafeSetActive(pauseMenuRoot, true);
+            SafeSetActive(settingsPanelRoot, false);
 
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
@@ -105,9 +115,10 @@ namespace Nat
             IsPaused = false;
             Time.timeScale = 1f;
 
-            if (pauseMenuRoot != null) pauseMenuRoot.SetActive(false);
-            if (settingsPanelRoot != null) settingsPanelRoot.SetActive(false);
-            if (overlaysToHideOnResume != null) overlaysToHideOnResume.SetActive(false);
+            SafeSetActive(pauseRoot, false);
+            SafeSetActive(pauseMenuRoot, false);
+            SafeSetActive(settingsPanelRoot, false);
+            SafeSetActive(overlaysToHideOnResume, false);
 
             ApplyGameplayCursorState();
         }
@@ -115,8 +126,9 @@ namespace Nat
         private void ShowPauseHome()
         {
             if (!IsPaused) Pause();
-            if (pauseMenuRoot != null) pauseMenuRoot.SetActive(true);
-            if (settingsPanelRoot != null) settingsPanelRoot.SetActive(false);
+            SafeSetActive(pauseRoot, true);
+            SafeSetActive(pauseMenuRoot, true);
+            SafeSetActive(settingsPanelRoot, false);
         }
 
         public void RestartGame()
@@ -125,7 +137,7 @@ namespace Nat
             Time.timeScale = 1f;
             ApplyGameplayCursorState();
 
-            // BoolFlag and other scene-scope state will reset on scene reload
+            // Reload current scene (BoolFlags and scene-scope state reset on load)
             var scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scene.buildIndex);
         }
@@ -154,6 +166,11 @@ namespace Nat
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
             }
+        }
+
+        private static void SafeSetActive(GameObject go, bool state)
+        {
+            if (go != null && go.activeSelf != state) go.SetActive(state);
         }
     }
 }
