@@ -11481,6 +11481,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 120302950}
+    - target: {fileID: 771427090928167202, guid: 34545d5100488654d876e44f4e586ef1, type: 3}
+      propertyPath: m_text
+      value: You got the cookies!
+      objectReference: {fileID: 0}
     - target: {fileID: 4129453857816822696, guid: 34545d5100488654d876e44f4e586ef1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
