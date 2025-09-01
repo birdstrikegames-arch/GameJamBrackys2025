@@ -2071,6 +2071,10 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 895197589}
+    - target: {fileID: 976400093195464016, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
+      propertyPath: successClip
+      value: 
+      objectReference: {fileID: 8300000, guid: ac22d81acebac6d4dbdd8a5f1f78f077, type: 3}
     - target: {fileID: 1086390182505733562, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -2203,6 +2207,10 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 895197589}
+    - target: {fileID: 6804583953226434248, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
+      propertyPath: successClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1973ca9d320618b499cfc7e715a96eb1, type: 3}
     - target: {fileID: 7256574145185731718, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
       propertyPath: meter
       value: 

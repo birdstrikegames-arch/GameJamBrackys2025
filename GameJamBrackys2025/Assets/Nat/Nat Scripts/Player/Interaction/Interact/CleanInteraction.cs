@@ -7,7 +7,7 @@ namespace Nat
     /// "Clean" style interactable (e.g., push shards aside).
     /// - Inspector prompt text (locked & available).
     /// - Requires a BoolFlag (item possessed). If missing: play locked SFX and do nothing.
-    /// - If present: disable/destroy target.
+    /// - If present: play success SFX, then disable/destroy target (optional delay).
     /// - Loudness: on locked attempt -> ApplyLocked(); on success -> ApplyFast() and ApplySlow().
     /// </summary>
     public class CleanInteraction : MonoBehaviour, IInteractable
@@ -25,11 +25,16 @@ namespace Nat
         [SerializeField] private GameObject targetToDisable;
         [Tooltip("If true, destroy the target instead of SetActive(false).")]
         [SerializeField] private bool destroyOnClean = false;
+        [Tooltip("Optional delay before disabling/destroying the target, to let SFX start.")]
+        [SerializeField] private float successDisableDelay = 0f;
 
         [Header("Audio")]
+        [Tooltip("Used for both locked and success SFX (can be on another object). If null, falls back to PlayClipAtPoint.")]
         [SerializeField] private AudioSource audioSource;
         [Tooltip("Played when trying to clean without the required flag.")]
         [SerializeField] private AudioClip lockedClip;
+        [Tooltip("Played when cleaning succeeds.")]
+        [SerializeField] private AudioClip successClip;
 
         // Internal
         private bool isCleaned = false;
@@ -44,11 +49,7 @@ namespace Nat
         public string GetDescription()
         {
             if (isCleaned) return string.Empty;
-
-            if (IsLocked())
-                return promptWhenLocked;
-
-            return promptWhenAvailable;
+            return IsLocked() ? promptWhenLocked : promptWhenAvailable;
         }
 
         public void Interact()
@@ -58,17 +59,15 @@ namespace Nat
             if (IsLocked())
             {
                 // Feedback when missing the required item
-                PlayOneShot(lockedClip);
+                PlaySfx(lockedClip);
 
                 // Loudness: treat as "locked door attempt"
-                if (loud != null)
-                    loud.ApplyLocked();
-
+                if (loud != null) loud.ApplyLocked();
                 return;
             }
 
-            // Success: clean it
-            DoClean();
+            // Success SFX first, so it can start before the target is hidden/destroyed
+            PlaySfx(successClip);
 
             // Loudness: treat as both fast and slow opening
             if (loud != null)
@@ -76,15 +75,29 @@ namespace Nat
                 loud.ApplyFast();
                 loud.ApplySlow();
             }
+
+            // Then perform the clean (optionally after a small delay)
+            if (successDisableDelay > 0f)
+                StartCoroutine(DoCleanAfterDelay(successDisableDelay));
+            else
+                DoClean();
         }
 
         private bool IsLocked()
         {
-            // If no flag assigned, consider it available
-            if (requiredFlag == null) return false;
+            if (requiredFlag == null) return false;  // available if no requirement
+            return !requiredFlag.Value;               // locked when flag is NOT set
+        }
 
-            // Locked when the required flag is NOT set
-            return !requiredFlag.Value;
+        private System.Collections.IEnumerator DoCleanAfterDelay(float delay)
+        {
+            float t = 0f;
+            while (t < delay)
+            {
+                t += Time.deltaTime;
+                yield return null;
+            }
+            DoClean();
         }
 
         private void DoClean()
@@ -100,10 +113,19 @@ namespace Nat
             }
         }
 
-        private void PlayOneShot(AudioClip clip)
+        private void PlaySfx(AudioClip clip)
         {
-            if (audioSource != null && clip != null)
+            if (clip == null) return;
+
+            if (audioSource != null)
+            {
                 audioSource.PlayOneShot(clip);
+            }
+            else
+            {
+                // Fallback: spawn a temp audio source at this position so SFX still plays
+                AudioSource.PlayClipAtPoint(clip, transform.position);
+            }
         }
     }
 }
