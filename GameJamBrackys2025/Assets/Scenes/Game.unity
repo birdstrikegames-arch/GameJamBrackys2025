@@ -8649,7 +8649,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: e8d80c17b6e060246a58b82b29551811, type: 3}
   m_Resource: {fileID: 8300000, guid: e8d80c17b6e060246a58b82b29551811, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.35
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -9092,6 +9092,14 @@ PrefabInstance:
       propertyPath: meter
       value: 
       objectReference: {fileID: 282867289}
+    - target: {fileID: 3438824766922113471, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
+      propertyPath: MaxDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438824766922113471, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3619245394228010528, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
