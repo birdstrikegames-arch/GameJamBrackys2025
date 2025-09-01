@@ -173,7 +173,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   animatorTrigger: Play
   playerTag: Player
-  cooldownSeconds: 0.5
+  cooldownSeconds: 0.3
   repeatable: 1
 --- !u!82 &2553736906426954628
 AudioSource:
