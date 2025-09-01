@@ -1600,6 +1600,10 @@ PrefabInstance:
       propertyPath: m_text
       value: You got the cookies!
       objectReference: {fileID: 0}
+    - target: {fileID: 1118756148321681851, guid: 34545d5100488654d876e44f4e586ef1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1223534531318980937, guid: 34545d5100488654d876e44f4e586ef1, type: 3}
       propertyPath: m_MinValue
       value: 0.0001
@@ -2059,6 +2063,18 @@ PrefabInstance:
       propertyPath: meter
       value: 
       objectReference: {fileID: 282867289}
+    - target: {fileID: 227976502738714944, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
+      propertyPath: fastAmount
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 227976502738714944, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
+      propertyPath: slowAmount
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 227976502738714944, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
+      propertyPath: lockedAmount
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 375728278575933139, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
       propertyPath: meter
       value: 
@@ -2087,6 +2103,18 @@ PrefabInstance:
       propertyPath: meter
       value: 
       objectReference: {fileID: 282867289}
+    - target: {fileID: 1264029581076874131, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
+      propertyPath: fastAmount
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1264029581076874131, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
+      propertyPath: slowAmount
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 1264029581076874131, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
+      propertyPath: lockedAmount
+      value: 75
+      objectReference: {fileID: 0}
     - target: {fileID: 1858098383342052507, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
       propertyPath: effectAnimator
       value: 
@@ -2150,6 +2178,10 @@ PrefabInstance:
     - target: {fileID: 3619245394228010528, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3625599784107728510, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3994349683995065735, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
       propertyPath: audioSource
@@ -2231,6 +2263,18 @@ PrefabInstance:
       propertyPath: meter
       value: 
       objectReference: {fileID: 282867289}
+    - target: {fileID: 7944323165878044293, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
+      propertyPath: fastAmount
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7944323165878044293, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
+      propertyPath: slowAmount
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 7944323165878044293, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
+      propertyPath: lockedAmount
+      value: 75
+      objectReference: {fileID: 0}
     - target: {fileID: 8539028929194372864, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
       propertyPath: meter
       value: 
