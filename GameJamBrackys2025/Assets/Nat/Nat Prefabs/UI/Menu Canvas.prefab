@@ -3823,7 +3823,19 @@ MonoBehaviour:
   m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4740512419698574086}
+        m_TargetAssemblyTypeName: VolumeAdjuster, Assembly-CSharp
+        m_MethodName: SetMusicVolume
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6997322503272082909
 GameObject:
   m_ObjectHideFlags: 0
@@ -4185,7 +4197,19 @@ MonoBehaviour:
   m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4740512419698574086}
+        m_TargetAssemblyTypeName: VolumeAdjuster, Assembly-CSharp
+        m_MethodName: SetSfxVolume
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7429553102778604394
 GameObject:
   m_ObjectHideFlags: 0
@@ -4530,6 +4554,7 @@ GameObject:
   - component: {fileID: 7689930354759044193}
   - component: {fileID: 3122389009353314224}
   - component: {fileID: 7202266487365440557}
+  - component: {fileID: 4740512419698574086}
   m_Layer: 5
   m_Name: SettingsPanel
   m_TagString: Untagged
@@ -4595,6 +4620,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4740512419698574086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7718278828158807622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7816df7aafc597c418c9a5f8f422dd54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 2c961c7166c5e3e4f8810fa172ef295c, type: 2}
 --- !u!1 &8069759411366395593
 GameObject:
   m_ObjectHideFlags: 0
