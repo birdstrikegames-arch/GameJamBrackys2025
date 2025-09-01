@@ -1,4 +1,4 @@
-// File: Objective.cs
+﻿// File: Objective.cs
 using UnityEngine;
 using TMPro;
 
@@ -77,13 +77,25 @@ namespace Nat
                 return;
             }
 
+            // Check if note with the same message already exists
+            for (int i = 0; i < noteHolder.childCount; i++)
+            {
+                var child = noteHolder.GetChild(i);
+                var tmp = child.GetComponentInChildren<TextMeshProUGUI>(true);
+                if (tmp != null && IsMatch(tmp.text, message))
+                {
+                    // Already exists → do not create again
+                    return;
+                }
+            }
+
             // Instantiate under the holder, keeping UI RectTransform settings intact
             GameObject instance = Instantiate(notePrefab, noteHolder);
-            var tmp = instance.GetComponentInChildren<TextMeshProUGUI>(true);
+            var newTmp = instance.GetComponentInChildren<TextMeshProUGUI>(true);
 
-            if (tmp != null)
+            if (newTmp != null)
             {
-                tmp.text = message;
+                newTmp.text = message;
             }
             else
             {
