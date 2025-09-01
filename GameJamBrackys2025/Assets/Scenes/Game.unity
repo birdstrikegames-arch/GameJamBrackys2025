@@ -328,7 +328,7 @@ MonoBehaviour:
   replayable: 0
   playSound: 1
   audioSource: {fileID: 895197589}
-  soundClip: {fileID: 8300000, guid: ac22d81acebac6d4dbdd8a5f1f78f077, type: 3}
+  soundClip: {fileID: 8300000, guid: 3bec0a21ef98c1249816963de384a73c, type: 3}
   disableObject: 0
   objectToDisable: {fileID: 0}
   enableObject: 1
