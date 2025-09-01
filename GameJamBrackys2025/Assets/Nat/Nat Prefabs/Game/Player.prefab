@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0713ab70aa9304544819ca0ddde11c44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3.5
+  moveSpeed: 2.5
   orientation: {fileID: 398904851359997994}
   cameraRoot: {fileID: 8736538469757211870}
   mouseSensitivity: 3
@@ -61,7 +61,7 @@ MonoBehaviour:
   footstepSource: {fileID: 3682466750580039449}
   footstepClips: []
   stepInterval: 0.5
-  jumpForce: 7.5
+  jumpForce: 4
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
