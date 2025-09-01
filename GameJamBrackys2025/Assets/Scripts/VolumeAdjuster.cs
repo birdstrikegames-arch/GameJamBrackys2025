@@ -1,16 +1,47 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class VolumeAdjuster : MonoBehaviour
 {
-    public AudioMixer audioMixer;
-    public void SetMusicVolume(float volume)
+    [SerializeField] private AudioMixer audioMixer;
+    [SerializeField] private Slider musicSlider;
+    [SerializeField] private Slider SFXSlider;
+
+    private void Start()
     {
-        audioMixer.SetFloat("MusicVolume", volume);
+        if(PlayerPrefs.HasKey("musicVolume"))
+        {
+            LoadVolume();
+        }
+        else
+        {
+            SetMusicVolume();
+            SetSFXVolume();
+        }
+
     }
 
-    public void SetSfxVolume(float volume)
+    public void SetMusicVolume()
     {
-        audioMixer.SetFloat("SFXVolume", volume);
+        float volume = musicSlider.value;
+        audioMixer.SetFloat("music", Mathf.Log10(volume)*20);
+        PlayerPrefs.SetFloat("musicVolume", volume);
+    }
+
+    public void SetSFXVolume()
+    {
+        float volume = SFXSlider.value;
+        audioMixer.SetFloat("sfx", Mathf.Log10(volume) * 20);
+        PlayerPrefs.SetFloat("SFXVolume", volume);
+    }
+
+    private void LoadVolume()
+    {
+        musicSlider.value = PlayerPrefs.GetFloat("musicVolume");
+        SFXSlider.value = PlayerPrefs.GetFloat("SFXVolume");
+
+        SetMusicVolume();
+        SetSFXVolume();
     }
 }
