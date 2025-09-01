@@ -307,6 +307,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e84c6c9703675204facb654050659c68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &346743785 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4418152147339409275, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
+  m_PrefabInstance: {fileID: 8393150007081839809}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &346743787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346743785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c80fbc99cfcce147bb9dce641f6f058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionText: Place Gifts
+  replayable: 0
+  playSound: 1
+  audioSource: {fileID: 895197589}
+  soundClip: {fileID: 8300000, guid: ac22d81acebac6d4dbdd8a5f1f78f077, type: 3}
+  disableObject: 0
+  objectToDisable: {fileID: 0}
+  enableObject: 1
+  objectToEnable: {fileID: 397119291}
+  noteHolder: {fileID: 445568182}
+  notePrefab: {fileID: 4966957213034273457, guid: 809117a2f2a3d0c4296240cc2871430d, type: 3}
+  createObjective: 1
+  objectiveMessage: '- Find Cookies'
+  preventDuplicateByMessage: 1
+  matchCaseForCreate: 1
+  destroyObjective: 1
+  objectiveMessageToDestroy: '- Place presents by the tree'
+  destroyAllMatches: 0
+  matchCaseForDestroy: 1
+  disableObjectiveByMessage: 0
+  objectiveMessageToDisable: Objective
+  matchCaseForDisableObjective: 1
+  disableAllMatchingObjectives: 0
+  enableObjectiveByMessage: 0
+  objectiveMessageToEnable: Objective
+  matchCaseForEnableObjective: 1
+  enableAllMatchingObjectives: 0
+--- !u!1 &397119291 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2101342280640611204, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
+  m_PrefabInstance: {fileID: 8393150007081839809}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &431013463
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -503,6 +552,135 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1646846074474798527, guid: 803fa84ca0d42ec4fb42d1b9192beabe, type: 3}
   m_PrefabInstance: {fileID: 1345840757}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &895197587
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 895197588}
+  - component: {fileID: 895197589}
+  m_Layer: 0
+  m_Name: + Audio Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &895197588
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895197587}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2138907116}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &895197589
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895197587}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -1824841942476758904, guid: 2c961c7166c5e3e4f8810fa172ef295c, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &915760442
 GameObject:
   m_ObjectHideFlags: 0
@@ -806,6 +984,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1695014297}
     m_Modifications:
+    - target: {fileID: 5679787121997620525, guid: c29d9ad42fcfd0e44a443071463d7c1b, type: 3}
+      propertyPath: message
+      value: '- Place presents by the tree'
+      objectReference: {fileID: 0}
     - target: {fileID: 5679787121997620525, guid: c29d9ad42fcfd0e44a443071463d7c1b, type: 3}
       propertyPath: noteHolder
       value: 
@@ -1316,6 +1498,11 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 3682466750580039449, guid: 2f9fe02501f27de4e8ca7de615ca2d5f, type: 3}
   m_PrefabInstance: {fileID: 105368829266904023}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &2138907116 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 398904851359997994, guid: 2f9fe02501f27de4e8ca7de615ca2d5f, type: 3}
+  m_PrefabInstance: {fileID: 105368829266904023}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &105368829266904023
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1383,7 +1570,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 5704353640421069582, guid: 2f9fe02501f27de4e8ca7de615ca2d5f, type: 3}
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 398904851359997994, guid: 2f9fe02501f27de4e8ca7de615ca2d5f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 895197588}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f9fe02501f27de4e8ca7de615ca2d5f, type: 3}
 --- !u!1001 &4197523999217050771
@@ -1873,6 +2063,22 @@ PrefabInstance:
       propertyPath: meter
       value: 
       objectReference: {fileID: 282867289}
+    - target: {fileID: 428882549055415245, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 895197589}
+    - target: {fileID: 976400093195464016, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 895197589}
+    - target: {fileID: 1086390182505733562, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -1818111873101695623, guid: ca4222581b12c2540b3847da53ff689e, type: 3}
+    - target: {fileID: 1086390182505733562, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1264029581076874131, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
       propertyPath: meter
       value: 
@@ -1885,6 +2091,10 @@ PrefabInstance:
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 2138907114}
+    - target: {fileID: 2101342280640611204, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2400123970688495977, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
       propertyPath: oxygenManager
       value: 
@@ -1940,7 +2150,7 @@ PrefabInstance:
     - target: {fileID: 3994349683995065735, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
       propertyPath: audioSource
       value: 
-      objectReference: {fileID: 2138907115}
+      objectReference: {fileID: 895197589}
     - target: {fileID: 4025429905738788588, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
       propertyPath: meter
       value: 
@@ -1989,6 +2199,10 @@ PrefabInstance:
       propertyPath: meter
       value: 
       objectReference: {fileID: 282867289}
+    - target: {fileID: 6804583953226434248, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 895197589}
     - target: {fileID: 7256574145185731718, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
       propertyPath: meter
       value: 
@@ -2017,10 +2231,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: House
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4033223480700508739, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4418152147339409275, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 346743787}
   m_SourcePrefab: {fileID: 100100000, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -2034,7 +2252,7 @@ SceneRoots:
   - {fileID: 6636090699041929851}
   - {fileID: 4197523999217050771}
   - {fileID: 1846543896}
-  - {fileID: 8393150007081839809}
   - {fileID: 651899383}
   - {fileID: 915760443}
   - {fileID: 1695014297}
+  - {fileID: 8393150007081839809}
