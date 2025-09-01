@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: message
       value: '- Find a way to open the fridge'
       objectReference: {fileID: 0}
+    - target: {fileID: 5679787121997620525, guid: c29d9ad42fcfd0e44a443071463d7c1b, type: 3}
+      propertyPath: noteHolder
+      value: 
+      objectReference: {fileID: 445568182}
     - target: {fileID: 6010677582822925759, guid: c29d9ad42fcfd0e44a443071463d7c1b, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -1776,7 +1780,7 @@ PrefabInstance:
       objectReference: {fileID: 1816405143}
     - target: {fileID: 249250460464384371, guid: 9864ce27ab8377d469d2850833eb49cd, type: 3}
       propertyPath: drainPerSecond
-      value: 18
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 1388801094526640449, guid: 9864ce27ab8377d469d2850833eb49cd, type: 3}
       propertyPath: m_LocalScale.x
@@ -2002,6 +2006,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tutorial Cube
       objectReference: {fileID: 0}
+    - target: {fileID: 8099536964865804671, guid: 803fa84ca0d42ec4fb42d1b9192beabe, type: 3}
+      propertyPath: message
+      value: Use WASD to move
+      objectReference: {fileID: 0}
+    - target: {fileID: 8099536964865804671, guid: 803fa84ca0d42ec4fb42d1b9192beabe, type: 3}
+      propertyPath: tutorialText
+      value: 
+      objectReference: {fileID: 663801764}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2068,6 +2080,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 192977241511002147, guid: 8b92870879477294abd6ed1cd8126cc8, type: 3}
   m_PrefabInstance: {fileID: 441882385}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &445568182 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7625276611235932814, guid: 34545d5100488654d876e44f4e586ef1, type: 3}
+  m_PrefabInstance: {fileID: 4197523999217050771}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &446030402
 PrefabInstance:
@@ -3257,6 +3274,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &663801764 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3603281296534738091, guid: 34545d5100488654d876e44f4e586ef1, type: 3}
+  m_PrefabInstance: {fileID: 4197523999217050771}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &670981389
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4426,7 +4454,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1646846074474798527, guid: 803fa84ca0d42ec4fb42d1b9192beabe, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 1646846074474798527, guid: 803fa84ca0d42ec4fb42d1b9192beabe, type: 3}
       propertyPath: m_LocalScale.y
@@ -4434,11 +4462,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1646846074474798527, guid: 803fa84ca0d42ec4fb42d1b9192beabe, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1646846074474798527, guid: 803fa84ca0d42ec4fb42d1b9192beabe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.888
+      value: -9.523
       objectReference: {fileID: 0}
     - target: {fileID: 1646846074474798527, guid: 803fa84ca0d42ec4fb42d1b9192beabe, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4446,23 +4474,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1646846074474798527, guid: 803fa84ca0d42ec4fb42d1b9192beabe, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.232
+      value: -0.117
       objectReference: {fileID: 0}
     - target: {fileID: 1646846074474798527, guid: 803fa84ca0d42ec4fb42d1b9192beabe, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9990483
       objectReference: {fileID: 0}
     - target: {fileID: 1646846074474798527, guid: 803fa84ca0d42ec4fb42d1b9192beabe, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1646846074474798527, guid: 803fa84ca0d42ec4fb42d1b9192beabe, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.043619405
       objectReference: {fileID: 0}
     - target: {fileID: 1646846074474798527, guid: 803fa84ca0d42ec4fb42d1b9192beabe, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1646846074474798527, guid: 803fa84ca0d42ec4fb42d1b9192beabe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4470,7 +4498,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1646846074474798527, guid: 803fa84ca0d42ec4fb42d1b9192beabe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 1646846074474798527, guid: 803fa84ca0d42ec4fb42d1b9192beabe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -4490,8 +4518,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8099536964865804671, guid: 803fa84ca0d42ec4fb42d1b9192beabe, type: 3}
       propertyPath: message
-      value: Hold E to open doors quietly.
+      value: 'Hold E to open doors quietly
+
+        Don''t wake the dog up'
       objectReference: {fileID: 0}
+    - target: {fileID: 8099536964865804671, guid: 803fa84ca0d42ec4fb42d1b9192beabe, type: 3}
+      propertyPath: tutorialText
+      value: 
+      objectReference: {fileID: 663801764}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5015,8 +5049,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8099536964865804671, guid: 803fa84ca0d42ec4fb42d1b9192beabe, type: 3}
       propertyPath: message
-      value: Use Space Bar to jump.
+      value: Use Space Bar to jump
       objectReference: {fileID: 0}
+    - target: {fileID: 8099536964865804671, guid: 803fa84ca0d42ec4fb42d1b9192beabe, type: 3}
+      propertyPath: tutorialText
+      value: 
+      objectReference: {fileID: 663801764}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5269,6 +5307,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1695014297}
     m_Modifications:
+    - target: {fileID: 5679787121997620525, guid: c29d9ad42fcfd0e44a443071463d7c1b, type: 3}
+      propertyPath: noteHolder
+      value: 
+      objectReference: {fileID: 445568182}
     - target: {fileID: 6010677582822925759, guid: c29d9ad42fcfd0e44a443071463d7c1b, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -5707,8 +5749,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8099536964865804671, guid: 803fa84ca0d42ec4fb42d1b9192beabe, type: 3}
       propertyPath: message
-      value: Sometimes you need a tool to proceed.
+      value: Sometimes you need a tool to proceed
       objectReference: {fileID: 0}
+    - target: {fileID: 8099536964865804671, guid: 803fa84ca0d42ec4fb42d1b9192beabe, type: 3}
+      propertyPath: tutorialText
+      value: 
+      objectReference: {fileID: 663801764}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7991,6 +8037,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1623240248337031601, guid: 35be3ada53869e642bd5ce65142f9008, type: 3}
+      propertyPath: noteHolder
+      value: 
+      objectReference: {fileID: 445568182}
     - target: {fileID: 1871124307265131810, guid: 35be3ada53869e642bd5ce65142f9008, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -8059,6 +8109,10 @@ PrefabInstance:
       propertyPath: message
       value: '- Find edible cookies...'
       objectReference: {fileID: 0}
+    - target: {fileID: 7772556541093719860, guid: 35be3ada53869e642bd5ce65142f9008, type: 3}
+      propertyPath: noteHolder
+      value: 
+      objectReference: {fileID: 445568182}
     - target: {fileID: 8292852029384161899, guid: 35be3ada53869e642bd5ce65142f9008, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -8851,18 +8905,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 398904851359997994, guid: 2f9fe02501f27de4e8ca7de615ca2d5f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 398904851359997994, guid: 2f9fe02501f27de4e8ca7de615ca2d5f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 398904851359997994, guid: 2f9fe02501f27de4e8ca7de615ca2d5f, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 398904851359997994, guid: 2f9fe02501f27de4e8ca7de615ca2d5f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.517
       objectReference: {fileID: 0}
@@ -8902,17 +8944,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 398904851359997994, guid: 2f9fe02501f27de4e8ca7de615ca2d5f, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2762767756889405461, guid: 2f9fe02501f27de4e8ca7de615ca2d5f, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5809820867490492509, guid: 2f9fe02501f27de4e8ca7de615ca2d5f, type: 3}
-      propertyPath: moveSpeed
-      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 6568443504264333486, guid: 2f9fe02501f27de4e8ca7de615ca2d5f, type: 3}
       propertyPath: interactionUI
