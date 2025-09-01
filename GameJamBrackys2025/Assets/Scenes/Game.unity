@@ -9140,6 +9140,18 @@ PrefabInstance:
       propertyPath: meter
       value: 
       objectReference: {fileID: 282867289}
+    - target: {fileID: 4702393471433176966, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
+      propertyPath: fastClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c498588215cb0324595e5b18ddfd1abd, type: 3}
+    - target: {fileID: 4702393471433176966, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
+      propertyPath: slowClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c498588215cb0324595e5b18ddfd1abd, type: 3}
+    - target: {fileID: 4702393471433176966, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
+      propertyPath: lockedClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c498588215cb0324595e5b18ddfd1abd, type: 3}
     - target: {fileID: 5540661464281920466, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
       propertyPath: meter
       value: 
