@@ -14656,6 +14656,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.136
       objectReference: {fileID: 0}
+    - target: {fileID: 7957910074552002437, guid: 5cf90fa68380f6a4ca6237690da8f3f4, type: 3}
+      propertyPath: promptWhenLocked
+      value: It's too sharp to touch
+      objectReference: {fileID: 0}
+    - target: {fileID: 7957910074552002437, guid: 5cf90fa68380f6a4ca6237690da8f3f4, type: 3}
+      propertyPath: promptWhenAvailable
+      value: Push shards aside
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -1965,6 +1965,10 @@ PrefabInstance:
       propertyPath: meter
       value: 
       objectReference: {fileID: 282867289}
+    - target: {fileID: 4989358106768848705, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
+      propertyPath: meter
+      value: 
+      objectReference: {fileID: 282867289}
     - target: {fileID: 5540661464281920466, guid: 9a4dda0c6c3fbfe4fbdaea2759237883, type: 3}
       propertyPath: meter
       value: 
